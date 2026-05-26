@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-neuropy = {git = "https://github.com/CommanderPho/NeuroPy.git", rev = "develop"}
+neuropy = { git = "https://github.com/CommanderPho/NeuroPy.git", branch = "develop" }
 
 # [tool.uv.workspace]
 # members = [

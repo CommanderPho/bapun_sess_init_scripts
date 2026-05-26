@@ -465,7 +465,7 @@ requires-dist = [
     { name = "ipython" },
     { name = "jupyterlab" },
     { name = "kilosort", specifier = ">=4.1.7" },
-    { name = "neuropy", git = "https://github.com/CommanderPho/NeuroPy.git?rev=develop" },
+    { name = "neuropy", git = "https://github.com/CommanderPho/NeuroPy.git?branch=develop" },
     { name = "samplerate", specifier = ">=0.2.4" },
     { name = "shapely", specifier = ">=2.1.2" },
     { name = "spikeinterface", extras = ["full"], specifier = ">=0.104.3" },
@@ -3390,7 +3390,7 @@ wheels = [
 [[package]]
 name = "neuropy"
 version = "0.2.7"
-source = { git = "https://github.com/CommanderPho/NeuroPy.git?rev=develop#b6153840572a217cdd954e70500e65b467be7ef6" }
+source = { git = "https://github.com/CommanderPho/NeuroPy.git?branch=develop#b6153840572a217cdd954e70500e65b467be7ef6" }
 dependencies = [
     { name = "cupy-cuda12x" },
     { name = "dill", extra = ["graph"] },
