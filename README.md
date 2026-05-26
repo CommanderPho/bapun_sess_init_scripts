@@ -17,9 +17,9 @@ micromamba pip install . --editable
 ```
 
 ```
-process_resample -f 30000,1250 -n 195 continuous.dat continuous.eeg
+process_resample -f 30000,1250 -n 200 continuous.dat continuous.eeg
 
-process_resample -f 30000,1250 -n 195 continuous.dat continuous.eeg
+process_resample -f 30000,1250 -n 200 continuous.dat continuous.eeg
 
 
 ```
@@ -109,4 +109,10 @@ http://127.0.0.1:8889/lab?token=5a5da86609475f2e29341b110eecd273fe4e8d5787a83836
 ## on WSL
 ```ps1
 uv run ipython kernel install --user --name=rats-WIN
+```
+
+
+```
+mv '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg' '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg.bak'
+process_resample -f 30000,1250 -n 200 '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.dat' '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg'
 ```

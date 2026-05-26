@@ -28,7 +28,7 @@ def step_perform_concat(found_raw_data_paths: List[Path], spyk_circ_output_dir: 
     return concatenated_file_output_path
 
 
-def step_perform_downsample(concatenated_file_output_path: Path, sampling_frequency=30000, num_chan=195, resample_rate=1250) -> Path:
+def step_perform_downsample(concatenated_file_output_path: Path, sampling_frequency=30000, num_chan=200, resample_rate=1250) -> Path:
     import spikeinterface.extractors as se
     import spikeinterface.preprocessing as spre
     from spikeinterface.core import write_binary_recording
