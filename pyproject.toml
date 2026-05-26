@@ -1,0 +1,25 @@
+[project]
+name = "bapun_sess_init_scripts"
+version = "0.3.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "ipykernel",
+    "ipython",
+    "jupyterlab",
+    "kilosort>=4.1.7",
+    "samplerate>=0.2.4",
+    "shapely>=2.1.2",
+    "spikeinterface-gui[desktop]>=0.13.1",
+    "spikeinterface[full]>=0.104.3",
+    "neuropy",
+]
+
+[tool.uv.sources]
+neuropy = {git = "https://github.com/CommanderPho/NeuroPy.git", rev = "develop"}
+
+# [tool.uv.workspace]
+# members = [
+#     "NeuroPy",
+# ]

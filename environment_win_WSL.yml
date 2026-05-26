@@ -1,0 +1,27 @@
+name: phy2-wsl
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - git
+  - numpy<2.0
+  - matplotlib
+  - scipy
+  - h5py
+  - pyqt
+  - pyopengl
+  - pyqtwebengine
+  - pytest
+  - qtconsole
+  - requests
+  - responses
+  - traitlets
+  - dask
+  - cython
+  - pillow
+  - scikit-learn
+  - joblib
+  - pip:
+    - git+https://github.com/cortex-lab/phy.git
