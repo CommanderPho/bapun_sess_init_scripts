@@ -122,4 +122,10 @@ uv run ipython kernel install --user --name=rats-WIN
 ```
 mv '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg' '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg.bak'
 process_resample -f 30000,1250 -n 200 '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.dat' '/home/halechr/FastData/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg'
+
+mv "W:\Data\Bapun\RatS\Day1Openfield\RatS-Day1Openfield.eeg" "W:\Data\Bapun\RatS\Day1Openfield\RatS-Day1Openfield.eeg.bak"
+process_resample -f 30000,1250 -n 200 "W:/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.dat" "W:/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.eeg"
+
+process_resample -f 30000,1250 -n 200 "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.dat" "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.eeg"
+
 ```
