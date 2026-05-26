@@ -67,6 +67,13 @@ micromamba install -c conda-forge -c spyking-circus spyking-circus
 
 ```
 
+```bash
+eval "$(micromamba shell hook --shell=bash)"
+micromamba activate circus
+
+
+```
+
 - Ran main export, took about the length of the recording to do processing -- this took about 2 hours
 - Ran special export for use with the Phy GUI -- this is taking about 20 minutes
 
