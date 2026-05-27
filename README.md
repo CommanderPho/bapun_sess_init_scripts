@@ -70,7 +70,8 @@ micromamba install -c conda-forge -c spyking-circus spyking-circus
 ```bash
 eval "$(micromamba shell hook --shell=bash)"
 micromamba activate circus
-
+cd spyk-circ
+spyking-circus RatS-Day1Openfield.dat -c 8
 
 ```
 
@@ -107,7 +108,7 @@ phy template-gui params.py
 # Pho Interactive NeuroPy Notebook Pipeline
 
 ```bash
-uv run ipython kernel install --user --name=rats-UV
+uv run ipython kernel install --user --name=bapun-sess-init-UV
 
 uv run jupyter-lab --no-browser --port='8889' --ServerApp.ip='0.0.0.0' --ServerApp.allow_origin='*' --ServerApp.disable_check_xsrf=True
 http://127.0.0.1:8889/lab?token=5a5da86609475f2e29341b110eecd273fe4e8d5787a83836
@@ -115,7 +116,7 @@ http://127.0.0.1:8889/lab?token=5a5da86609475f2e29341b110eecd273fe4e8d5787a83836
 
 ## on WSL
 ```ps1
-uv run ipython kernel install --user --name=rats-WIN
+uv run ipython kernel install --user --name=bapun-sess-init-UV-WSL
 ```
 
 
@@ -128,4 +129,58 @@ process_resample -f 30000,1250 -n 200 "W:/Data/Bapun/RatS/Day1Openfield/RatS-Day
 
 process_resample -f 30000,1250 -n 200 "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.dat" "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.eeg"
 
+mv "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day4Openfield.eeg" "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day4Openfield.eeg.bak"
+process_resample -f 30000,1250 -n 200 "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day4Openfield.dat" "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day4Openfield.eeg"
+
 ```
+
+
+# Latest Output Apogee 2025-05-26
+
+### RatS-Day1Openfield
+```bash
+mv "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.eeg" "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.eeg.bak"
+cd '/mnt/w/Data/Bapun/RatS/bapun_sess_init_scripts'
+./scripts/process_resample -f 30000,1250 -n 200 "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.dat" "/mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.eeg"
+```
+#### Output 2026-05-26:
+```bash
+Input File     : /mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.dat
+Channels       : 200
+Sampling Rate  : 30000.000000
+Output file    : /mnt/w/Data/Bapun/RatS/Day1Openfield/RatS-Day1Openfield.eeg
+Sampling Rate  : 1250.000000
+Freq Ratio     : 0.041667
+Converter      : Fastest Sinc Interpolator
+Resampling     : 0% ################################################## 100%
+Output Frames  : 8708858
+```
+
+
+
+### RatS-Day4Openfield
+```bash
+mv "/mnt/w/Data/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg" "/mnt/w/Data/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg.bak"
+cd '/mnt/w/Data/Bapun/RatS/bapun_sess_init_scripts'
+./scripts/process_resample -f 30000,1250 -n 200 "/mnt/w/Data/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.dat" "/mnt/w/Data/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg"
+```
+#### Output 2026-05-26:
+```bash
+Input File     : /mnt/w/Data/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.dat
+Channels       : 200
+Sampling Rate  : 30000.000000
+Output file    : /mnt/w/Data/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.eeg
+Sampling Rate  : 1250.000000
+Freq Ratio     : 0.041667
+Converter      : Fastest Sinc Interpolator
+Resampling     : 0% ################################################## 100%
+Output Frames  : 20443109
+```
+
+### IN WSL 2026-05-27:
+```bash
+cd '/mnt/w/Data/Bapun/RatS/Day4Openfield/spyk-circ'
+micromamba activate circus
+spyking-circus RatS-Day4Openfield.dat --cpu 15
+```
+

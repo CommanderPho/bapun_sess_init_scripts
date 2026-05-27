@@ -1,0 +1,2 @@
+[tool.uv.sources]
+neuropy = { path = "../NeuroPy", editable = true }
