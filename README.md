@@ -156,6 +156,14 @@ Resampling     : 0% ################################################## 100%
 Output Frames  : 8708858
 ```
 
+### IN WSL 2026-05-27 !!! (TODO as of 5:47pm) !!:
+```bash
+cd '/mnt/w/Data/Bapun/RatS/Day1Openfield/spyk-circ'
+micromamba activate circus
+spyking-circus RatS-Day1Openfield.dat --cpu 15
+```
+
+
 
 
 ### RatS-Day4Openfield
