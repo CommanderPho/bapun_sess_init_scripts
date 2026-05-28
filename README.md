@@ -332,6 +332,29 @@ Hostfile      : /home/pho/spyking-circus/circus.hosts
 100%|████████████████████████████████████|[11:40<00:00, 70.09s/it]
 ```
 
+## Using Phy
+NOTE: must switch to real Windows, not WSL.
+Also will need to manually change paths in "W:\Data\Bapun\RatS\Day1Openfield\spyk-circ\RatS-Day1Openfield\RatS-Day1Openfield-merged.GUI\params.py" to Windows Paths
+```params.py
+dat_path = r"W:/Data/Bapun/RatS/Day1Openfield/spyk-circ/RatS-Day1Openfield.dat"
+n_channels_dat = 195
+n_features_per_channel = 5
+dtype = r"int16"
+offset = 0
+sample_rate = 30000.0
+dir_path = r"W:/Data/Bapun/RatS/Day1Openfield/spyk-circ/RatS-Day1Openfield/RatS-Day1Openfield-merged.GUI"
+hp_filtered = True
+```
+
+```ps1
+cd "W:\Data\Bapun\RatS\Day1Openfield\spyk-circ\RatS-Day1Openfield\RatS-Day1Openfield-merged.GUI"
+micromamba activate phy2
+phy template-gui params.py
+```
+
+
+
+
 
 
 #############################################
@@ -521,4 +544,25 @@ Hostfile      : /home/pho/spyking-circus/circus.hosts
 | Exporting data for the phy GUI with 10 CPUs...
 ------------------------------------------------------------------
 100%|███████████████████████████████████|[25:19<00:00, 189.90s/it]
+```
+
+## Using Phy
+NOTE: must switch to real Windows, not WSL.
+Also will need to manually change paths in "W:\Data\Bapun\RatS\Day4Openfield\spyk-circ\RatS-Day4Openfield\RatS-Day4Openfield-merged.GUI\params.py" to Windows Paths
+Example `params.py` file:
+```params.py
+dat_path = r"W:/Data/Bapun/RatS/Day4Openfield/spyk-circ/RatS-Day4Openfield.dat"
+n_channels_dat = 195
+n_features_per_channel = 5
+dtype = r"int16"
+offset = 0
+sample_rate = 30000.0
+dir_path = r"W:/Data/Bapun/RatS/Day4Openfield/spyk-circ/RatS-Day4Openfield/RatS-Day4Openfield-merged.GUI"
+hp_filtered = True
+```
+
+```ps1
+cd "W:\Data\Bapun\RatS\Day4Openfield\spyk-circ\RatS-Day4Openfield\RatS-Day4Openfield-merged.GUI"
+micromamba activate phy2
+phy template-gui params.py
 ```
