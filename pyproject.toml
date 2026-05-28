@@ -14,6 +14,8 @@ dependencies = [
     #    "spikeinterface-gui[desktop]>=0.13.1",
     #    "spikeinterface[full]>=0.104.3",
     "neuropy",
+    "ipympl>=0.10.0",
+    "pyqt6>=6.11.0",
 ]
 
 [tool.uv.sources]
