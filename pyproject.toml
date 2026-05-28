@@ -1,6 +1,6 @@
 [project]
 name = "bapun_sess_init_scripts"
-version = "0.3.0"
+version = "0.3.1"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10,<3.12"
@@ -11,8 +11,8 @@ dependencies = [
     "kilosort>=4.1.7",
     "samplerate>=0.2.4",
     "shapely>=2.1.2",
-    #    "spikeinterface-gui[desktop]>=0.13.1",
-    #    "spikeinterface[full]>=0.104.3",
+    "spikeinterface-gui[desktop]>=0.13.1",
+    "spikeinterface[full]>=0.104.3",
     "neuropy",
     "ipympl>=0.10.0",
     "pyqt6>=6.11.0",
