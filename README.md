@@ -93,6 +93,15 @@ micromamba activate phy2-wsl
 
 cd '/mnt/w/Data/Bapun/RatS/Day1Openfield/spyk-circ/RatS-Day1Openfield/RatS-Day1Openfield-merged.GUI'
 
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_SCALE_FACTOR=1
+export QT_ENABLE_HIGHDPI_SCALING=0
+export XCURSOR_SIZE=24 ## this line fixed it, but maybe these Qt fixes fix other things
+phy template-gui params.py
+
+
+
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1
 export QT_ENABLE_HIGHDPI_SCALING=0
