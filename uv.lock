@@ -462,7 +462,9 @@ dependencies = [
     { name = "ipython", version = "9.13.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
     { name = "jupyterlab" },
     { name = "kilosort" },
+    { name = "neo" },
     { name = "neuropy" },
+    { name = "probeinterface" },
     { name = "pyqt6" },
     { name = "samplerate" },
     { name = "shapely" },
@@ -477,7 +479,9 @@ requires-dist = [
     { name = "ipython" },
     { name = "jupyterlab" },
     { name = "kilosort", specifier = ">=4.1.7" },
+    { name = "neo", git = "https://github.com/NeuralEnsemble/python-neo.git" },
     { name = "neuropy", editable = "../NeuroPy" },
+    { name = "probeinterface", git = "https://github.com/SpikeInterface/probeinterface.git" },
     { name = "pyqt6", specifier = ">=6.11.0" },
     { name = "samplerate", specifier = ">=0.2.4" },
     { name = "shapely", specifier = ">=2.1.2" },
@@ -3393,16 +3397,12 @@ wheels = [
 
 [[package]]
 name = "neo"
-version = "0.14.4"
-source = { registry = "https://pypi.org/simple" }
+version = "0.15.0.dev0"
+source = { git = "https://github.com/NeuralEnsemble/python-neo.git#52cac48a64edcf49289fdb361a5c479f2996952f" }
 dependencies = [
     { name = "numpy" },
     { name = "packaging" },
     { name = "quantities" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/7f/b1/e9228d616c817098b673ab990e82acb431856559f4e0235a687854df1ef4/neo-0.14.4.tar.gz", hash = "sha256:cbe24031c514543005ec698d8fe024b95a0839e9efd469bf6f8290dc3d86b3b5", size = 5085927, upload-time = "2026-03-12T09:59:56.893Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ac/66/93359047a9c7ede7c6319f58b2cee3be19552f57ef5380fe95cb812272fb/neo-0.14.4-py3-none-any.whl", hash = "sha256:0cd863424e35dddd768d713cfcc48cb06ab127fe1b5b132a0793c82975de5be4", size = 697727, upload-time = "2026-03-12T09:59:54.609Z" },
 ]
 
 [[package]]
@@ -4257,15 +4257,11 @@ wheels = [
 [[package]]
 name = "probeinterface"
 version = "0.3.2"
-source = { registry = "https://pypi.org/simple" }
+source = { git = "https://github.com/SpikeInterface/probeinterface.git#00e1a745ec837a06846e62bc2798ef9e49dddcc0" }
 dependencies = [
     { name = "numpy" },
     { name = "packaging" },
     { name = "requests" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/ad/b6/149976dac9228c39a80fd1dee1743b3ba8e878b8c425df4304a7ac395aa1/probeinterface-0.3.2.tar.gz", hash = "sha256:8cf02afb1f344be027e1f29e7a2c54fd35b38573ad77890fc5076f957ddf3db5", size = 6681139, upload-time = "2026-03-20T16:06:09.401Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c9/c9/7cd477fa3cc6e31b643c1ca8d13a7b398fa8c2b6a9c5926cab916729cf43/probeinterface-0.3.2-py3-none-any.whl", hash = "sha256:f288d013697a73836384a9ee8db6bc979764814b981b6730d463d3bd04d5f317", size = 68822, upload-time = "2026-03-20T16:06:08.059Z" },
 ]
 
 [[package]]

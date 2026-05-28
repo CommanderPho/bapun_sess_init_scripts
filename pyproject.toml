@@ -16,10 +16,14 @@ dependencies = [
     "neuropy",
     "ipympl>=0.10.0",
     "pyqt6>=6.11.0",
+    "neo",
+    "probeinterface",
 ]
 
 [tool.uv.sources]
 neuropy = { path = "../NeuroPy", editable = true }
+neo = { git = "https://github.com/NeuralEnsemble/python-neo.git" }
+probeinterface = { git = "https://github.com/SpikeInterface/probeinterface.git" }
 
 # [tool.uv.workspace]
 # members = [
