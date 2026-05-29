@@ -18,6 +18,7 @@ dependencies = [
     "pyqt6>=6.11.0",
     "neo",
     "probeinterface",
+    "pyqt5>=5.15.11",
 ]
 
 [tool.uv.sources]
