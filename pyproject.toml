@@ -18,6 +18,8 @@ dependencies = [
     "pyqt6>=6.11.0",
     "neo",
     "probeinterface",
+    "docker>=7.1.0",
+    "hdbscan>=0.8.43",
 ]
 
 [tool.uv.sources]

@@ -456,6 +456,8 @@ name = "bapun-sess-init-scripts"
 version = "0.3.1"
 source = { virtual = "." }
 dependencies = [
+    { name = "docker" },
+    { name = "hdbscan" },
     { name = "ipykernel" },
     { name = "ipympl" },
     { name = "ipython", version = "8.39.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -474,6 +476,8 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "docker", specifier = ">=7.1.0" },
+    { name = "hdbscan", specifier = ">=0.8.43" },
     { name = "ipykernel" },
     { name = "ipympl", specifier = ">=0.10.0" },
     { name = "ipython" },
@@ -1166,6 +1170,20 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz", hash = "sha256:2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed", size = 60722, upload-time = "2023-12-24T09:54:32.31Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl", hash = "sha256:7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2", size = 20277, upload-time = "2023-12-24T09:54:30.421Z" },
+]
+
+[[package]]
+name = "docker"
+version = "7.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pywin32", marker = "sys_platform == 'win32'" },
+    { name = "requests" },
+    { name = "urllib3" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/91/9b/4a2ea29aeba62471211598dac5d96825bb49348fa07e906ea930394a83ce/docker-7.1.0.tar.gz", hash = "sha256:ad8c70e6e3f8926cb8a92619b832b4ea5299e2831c14284663184e200546fa6c", size = 117834, upload-time = "2024-05-23T11:13:57.216Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e3/26/57c6fb270950d476074c087527a558ccb6f4436657314bfb6cdf484114c4/docker-7.1.0-py3-none-any.whl", hash = "sha256:c96b93b7f0a746f9e77d325bcfb87422a3d8bd4f03136ae8a85b37f1898d5fc0", size = 147774, upload-time = "2024-05-23T11:13:55.01Z" },
 ]
 
 [[package]]
@@ -2163,6 +2181,28 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/4c/42/2193ed41ccee78baba8fcc0cff2c925b8b9ee3793305b23e1f22c20bf4c7/h5py-3.16.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:ffbab2fedd6581f6aa31cf1639ca2cb86e02779de525667892ebf4cc9fd26434", size = 5034013, upload-time = "2026-03-06T13:47:59.01Z" },
     { url = "https://files.pythonhosted.org/packages/f7/20/e6c0ff62ca2ad1a396a34f4380bafccaaf8791ff8fccf3d995a1fc12d417/h5py-3.16.0-cp311-cp311-win_amd64.whl", hash = "sha256:17d1f1630f92ad74494a9a7392ab25982ce2b469fc62da6074c0ce48366a2999", size = 3191673, upload-time = "2026-03-06T13:48:00.626Z" },
     { url = "https://files.pythonhosted.org/packages/f2/48/239cbe352ac4f2b8243a8e620fa1a2034635f633731493a7ff1ed71e8658/h5py-3.16.0-cp311-cp311-win_arm64.whl", hash = "sha256:85b9c49dd58dc44cf70af944784e2c2038b6f799665d0dcbbc812a26e0faa859", size = 2673834, upload-time = "2026-03-06T13:48:02.579Z" },
+]
+
+[[package]]
+name = "hdbscan"
+version = "0.8.43"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "joblib" },
+    { name = "numpy" },
+    { name = "scikit-learn" },
+    { name = "scipy", version = "1.15.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3a/6c/152c4c7831563488d360b2da03671631bb95431a19297a92178f65514cd5/hdbscan-0.8.43.tar.gz", hash = "sha256:cfe6e7e68f153c92cef3d19a86d29c1075f33774b1e97d284ba79b157506c8bb", size = 7089058, upload-time = "2026-05-13T03:09:18.567Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/05/65/e42fa64a2e0c4113d134fb8083d9505677c16839e4b6debb3be19bb12464/hdbscan-0.8.43-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:85cdcae19e953c6414af66bbc33cfaac76efb79acd30327d4ecbe9fe7fdf8bf8", size = 2595172, upload-time = "2026-05-13T03:08:37.026Z" },
+    { url = "https://files.pythonhosted.org/packages/e4/8a/665c1485e07c1a25a8cecff0914aae5dfd124b0f4218daee75d49ab1d7c4/hdbscan-0.8.43-cp310-cp310-macosx_15_0_x86_64.whl", hash = "sha256:b563bc8a43ae5e26b6500ec6673a8619b4071a2d465af918851855c64d99dfab", size = 2011725, upload-time = "2026-05-13T03:18:07.109Z" },
+    { url = "https://files.pythonhosted.org/packages/70/b4/f8a949bc79a2527c198dd1cb7eed4c7748753fae430128e927a705b2c7c9/hdbscan-0.8.43-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:70069545a492770c1f35636e30fe318cfcff53fa327cf9b9085d6d25b71e3b89", size = 5663477, upload-time = "2026-05-13T03:09:24.013Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/d0/d5a9229ca29813e208a42d24fa83940d7ccde7aa608210ba31c5c53b3b39/hdbscan-0.8.43-cp310-cp310-win_amd64.whl", hash = "sha256:a6ea5b282af2770eb96b611ab23e02a7ceba66ffa2a74c7cc00381a7c70ca0a8", size = 1952954, upload-time = "2026-05-13T03:09:00.642Z" },
+    { url = "https://files.pythonhosted.org/packages/ba/9c/bd448f5958cca0edbf30f3948c15094e982bc6f7db1d386a86de60ef2721/hdbscan-0.8.43-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:17ab1e971732aa53559b465edb4c1774d4a63ca950e2c3193aed0fb7c8985b48", size = 2584929, upload-time = "2026-05-13T03:08:24.667Z" },
+    { url = "https://files.pythonhosted.org/packages/fb/ed/dae4c06fda4f376c59f65b956b9b3423d87e36b2b8ebece8fdad2f274349/hdbscan-0.8.43-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:3ed902db1ffe648622123a135ab4c7e9a82ddcb91589adeffc3346b27e99e109", size = 5880626, upload-time = "2026-05-13T03:09:20.96Z" },
+    { url = "https://files.pythonhosted.org/packages/7f/c0/621a11eb37a488fa049844d869d3cb0b77677f85a69572652fdec585b9bb/hdbscan-0.8.43-cp311-cp311-win_amd64.whl", hash = "sha256:82a2288b5ed8056ab5f6df1ead0cb167740c5c2c4168cd490f944a7fe9b78d4a", size = 1952797, upload-time = "2026-05-13T03:09:03.141Z" },
 ]
 
 [[package]]
