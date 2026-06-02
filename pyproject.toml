@@ -20,12 +20,16 @@ dependencies = [
     "probeinterface",
     "docker>=7.1.0",
     "hdbscan>=0.8.43",
+    "pyqtgraph>=0.14.0",
+    "panel>=1.9.0",
+    "bokeh>=3.9.0",
 ]
 
 [tool.uv.sources]
 neuropy = { path = "../NeuroPy", editable = true }
 neo = { git = "https://github.com/NeuralEnsemble/python-neo.git" }
 probeinterface = { git = "https://github.com/SpikeInterface/probeinterface.git" }
+spikeinterface = { path = "../spikeinterface", editable = true }
 
 # [tool.uv.workspace]
 # members = [
