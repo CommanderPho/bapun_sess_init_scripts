@@ -299,6 +299,9 @@ Updating the data...
 | >> spyking-circus mydata.dat -m converting -e merged
 ------------------------------------------------------------------
 ```
+cd /mnt/w/Data/Bapun/RatS/Day1Openfield/spyk-circ
+
+
 
 #### Merging for Phy Result:
 ```bash
@@ -574,4 +577,13 @@ hp_filtered = True
 cd "W:\Data\Bapun\RatS\Day4Openfield\spyk-circ\RatS-Day4Openfield\RatS-Day4Openfield-merged.GUI"
 micromamba activate phy2
 phy template-gui params.py
+```
+
+
+
+# GreatLakes PyQt6 Compatibility Issue
+
+```bash
+uv add "pyside6<6.10"
+uv add "pyqt6<6.10"
 ```
