@@ -479,6 +479,7 @@ dependencies = [
     { name = "scikit-learn" },
     { name = "shapely" },
     { name = "spikeinterface", extra = ["full"] },
+    { name = "spikeinterface-gui" },
 ]
 
 [package.metadata]
@@ -502,6 +503,7 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.6,<1.7" },
     { name = "shapely", specifier = ">=2.1.2" },
     { name = "spikeinterface", extras = ["full"], editable = "../spikeinterface" },
+    { name = "spikeinterface-gui", editable = "../spikeinterface-gui" },
 ]
 
 [[package]]
@@ -6207,6 +6209,30 @@ test-widgets = [
     { name = "scikit-learn" },
     { name = "sortingview", specifier = ">=0.12.0" },
 ]
+
+[[package]]
+name = "spikeinterface-gui"
+version = "0.13.1"
+source = { editable = "../spikeinterface-gui" }
+dependencies = [
+    { name = "markdown" },
+    { name = "spikeinterface", extra = ["full"] },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "bokeh", marker = "extra == 'web'" },
+    { name = "markdown" },
+    { name = "panel", marker = "extra == 'web'" },
+    { name = "pyqtgraph", marker = "extra == 'desktop'" },
+    { name = "pyside6", marker = "extra == 'desktop'" },
+    { name = "pyside6", marker = "extra == 'test'" },
+    { name = "pytest", marker = "extra == 'test'" },
+    { name = "sphinx", marker = "extra == 'docs'", specifier = ">=5.0" },
+    { name = "sphinx-rtd-theme", marker = "extra == 'docs'" },
+    { name = "spikeinterface", extras = ["full"], specifier = ">=0.104.0" },
+]
+provides-extras = ["desktop", "web", "test", "docs"]
 
 [[package]]
 name = "sqltrie"

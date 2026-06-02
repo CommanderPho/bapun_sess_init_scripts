@@ -84,6 +84,12 @@ uv run si-curate-phy \
 
 For Great Lakes / older pandas, add `--patch-pandas-compat`. To recreate the analyzer folder each run, use `--analyzer-overwrite always`.
 
+**SpikeInterface-GUI (optional interactive viewer):** `spikeinterface-gui` is installed with `uv sync`. After running the curation pipeline in `notebooks/pho_SpikeInterface_based.ipynb`, set `LAUNCH_SPIKEINTERFACE_GUI = True` in the final optional cell to open the desktop viewer. CLI alternative:
+
+```bash
+uv run sigui /path/to/spyk-circ/RatS-Day1Openfield-phy-sorting_analyzer
+```
+
 
 # Pho only working on Apogee 2026-05-21
 Got working on Apogee using WSL (would not work natively) and the lab-wiki defined micromamba setup.
