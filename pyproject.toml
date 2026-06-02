@@ -25,6 +25,7 @@ dependencies = [
     "cupy-cuda12x>=13.6.0,<14",
     # UnitRefine models trained on sklearn 1.4.x; hdbscan requires >=1.6 — pin <1.7 to avoid 1.7+ pickle drift.
     "scikit-learn>=1.6,<1.7",
+    "pynvml>=13.0.1",
 ]
 
 [project.scripts]
