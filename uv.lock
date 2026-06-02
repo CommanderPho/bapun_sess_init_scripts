@@ -456,7 +456,7 @@ wheels = [
 
 [[package]]
 name = "bapun-sess-init-scripts"
-version = "0.3.3"
+version = "0.3.4"
 source = { editable = "." }
 dependencies = [
     { name = "bokeh" },
