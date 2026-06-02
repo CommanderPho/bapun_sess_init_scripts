@@ -1,2 +1,3 @@
 [tool.uv.sources]
 neuropy = { path = "../NeuroPy", editable = true }
+spikeinterface = { path = "../spikeinterface", editable = true }
