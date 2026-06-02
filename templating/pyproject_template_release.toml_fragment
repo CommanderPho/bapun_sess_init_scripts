@@ -1,2 +1,2 @@
 [tool.uv.sources]
-neuropy = { git = "https://github.com/CommanderPho/NeuroPy.git" }
+neuropy = { git = "https://github.com/CommanderPho/NeuroPy.git", branch = "origin/feature/numpy-and-pandas-2" }
