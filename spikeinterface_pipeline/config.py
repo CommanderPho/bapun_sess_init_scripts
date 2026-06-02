@@ -37,6 +37,29 @@ class CurationConfig:
 
 
 @dataclass
+class RefinementConfig:
+    apply_mahalanobis: bool = True
+    apply_gmm: bool = True
+    mahalanobis_threshold_std: float = 14.0
+    gmm_n_components: int = 2
+    min_spikes_for_split: int = 50
+    min_outlier_spikes: int = 10
+    min_subcluster_spikes: int = 10
+    max_splits_per_unit: int = 1
+    pca_n_components: int = 3
+
+
+@dataclass
+class QLabelConfig:
+    amazing_snr: float = 8.0
+    amazing_isi_violations_ratio: float = 0.1
+    amazing_probability: float = 0.8
+    sad_probability: float = 0.65
+    interneuron_firing_rate_hz: float = 5.0
+    interneuron_peak_to_valley_s: float = 0.00035
+
+
+@dataclass
 class PhyCurationResult:
     sorting: object
     sorting_analyzer: object

@@ -84,6 +84,20 @@ uv run si-curate-phy \
 
 For Great Lakes / older pandas, add `--patch-pandas-compat`. To recreate the analyzer folder each run, use `--analyzer-overwrite always`.
 
+**Phy-style automated refinement (Mahalanobis + Gaussian + UnitRefine):**
+
+```bash
+uv run si-refine-phy \
+  --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --strategy sua_relaxed_prob \
+  --mahalanobis-threshold 14 \
+  --gmm-components 2 \
+  --analyzer-overwrite if_missing
+```
+
+This writes `group` and `q` into `cluster_info.tsv` (`q`: 1 amazing, 2 good, 3 sad, 6 mua, 8 interneuron), plus a `{basename}-refinement_review.csv` summary file in `spyk-circ`.
+
 **SpikeInterface-GUI (optional interactive viewer):** `spikeinterface-gui` is installed with `uv sync`. After running the curation pipeline in `notebooks/pho_SpikeInterface_based.ipynb`, set `LAUNCH_SPIKEINTERFACE_GUI = True` in the final optional cell to open the desktop viewer. CLI alternative:
 
 ```bash
