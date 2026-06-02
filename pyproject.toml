@@ -20,6 +20,8 @@ dependencies = [
     "probeinterface",
     "docker>=7.1.0",
     "hdbscan>=0.8.43",
+    "tridesclous>=1.6.9",
+    "pyqtgraph>=0.14.0",
 ]
 
 [tool.uv.sources]
