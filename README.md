@@ -299,6 +299,9 @@ Updating the data...
 | >> spyking-circus mydata.dat -m converting -e merged
 ------------------------------------------------------------------
 ```
+cd /mnt/w/Data/Bapun/RatS/Day1Openfield/spyk-circ
+
+
 
 #### Merging for Phy Result:
 ```bash
