@@ -1,0 +1,1000 @@
+   14  source /home/halechr/repos/Spike3D/.venv/bin/activate
+   15  pwd
+   16  git pull
+   17  git stash save "GL"
+   18  git pull -f
+   19  git fetch --all
+   20  git reset --hard origin/master
+   21  git stash save "GL"
+   22  ls
+   23  git pull
+   24  deactivate
+   25  uv sync --all-extras
+   26  uv remove PyQtInspect
+   27  uv sync --all-extras
+   28  source .venv/bin/activate
+   29  ./scripts/unix/repos_pull_changes.sh 
+   30  uv lock
+   31  uv sync --all-extras
+   32  ls
+   33  cd ~/cloud/
+   34  ls
+   35  cd locker_dataDen/
+   36  ls
+   37  cd ../
+   38  ls
+   39  mount_all_cloud_drives 
+   40  mount_locker_dataDen_GL 
+   41  source /home/halechr/repos/Spike3D/.venv/bin/activate
+   42  git stash save "GL"
+   43  ./scripts/unix/repos_pull_changes.sh 
+   44  uv sync --all-extras
+   45  deactivate
+   46  poetry cache clear _default_cache --all
+   47  du -h --max-depth=1 ~/ | sort -hr | head -n 11
+   48  du -h --max-depth=1 ~/ | sort -h
+   49  poetry cache clear pypi --all 
+   50  poetry cache list
+   51  poetry cache clear PyPI --all 
+   52  poetry cache list
+   53  rm -rf ~/.cache/pypoetry
+   54  htop
+   55  conda clean --all --dry-run
+   56  cat ~/.bash_profile 
+   57  module load conda
+   58  module avail anaconda
+   59  module --default avail anaconda
+   60  module load python3.9-anaconda/2021.11
+   61  module load python3.11-anaconda/2024.02
+   62  module unload python
+   63  module load python3.11-anaconda/2024.02
+   64  conda clean --all --dry-run
+   65  # Actually remove all caches and unused packages
+   66  conda clean --all -y
+   67  uv syncsource /home/halechr/repos/Spike3D/.venv/bin/activate
+   68  uv sync
+   69  deactivate
+   70  uv lock --check
+   71  uv sync --all-extras
+   72  source .venv/bin/activate
+   73  pwd
+   74  git pull
+   75  ./scripts/unix/repos_pull_changes.sh 
+   76  htop
+   77  pwd
+   78  uv sync --all-extras
+   79  git pull
+   80  pwd
+   81  pwd
+   82  ./scripts/unix/repos_pull_changes.sh 
+   83  cd ../../
+   84  ls
+   85  cd Spike3D_ExploreEnv/
+   86  ls
+   87  git pull
+   88  pwd
+   89  ls
+   90  cd Spike3D/
+   91  ./scripts/unix/repos_pull_changes.sh 
+   92  uv sync --all-extras
+   93  uv remove datoviz
+   94  pwd
+   95  pwd
+   96  pwd
+   97  /home/halechr/.vscode-server/.cli.2901c5ac6db8a986a5666c3af51ff804d05af0d4.log
+   98  cat /home/halechr/.vscode-server/.cli.2901c5ac6db8a986a5666c3af51ff804d05af0d4.log
+   99  pwd
+  100  cd Spike3D
+  101  source .venv/bin/activate
+  102  uv sync --all-extras
+  103  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  104  ls
+  105  pwd
+  106  cd Spike3D
+  107  source .venv/bin/activate
+  108  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  109  uv add ipykernel
+  110  pwd
+  111  cd Spike3D
+  112  source .venv/bin/activate
+  113  which python
+  114  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  115  git pull
+  116  ./scripts/unix/repos_pull_changes.sh 
+  117  pwd
+  118  git pull
+  119  ./scripts/unix/repos_pull_changes.sh 
+  120  deactivate
+  121  uv sync --all-extra
+  122  uv sync --all-extras
+  123  uv lock
+  124  source .venv/bin/activate
+  125  which python
+  126  pwd
+  127  cd /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D
+  128  git pull
+  129  ./scripts/unix/repos_pull_changes.sh 
+  130  uv sync --all-extras
+  131  uv remove datoviz
+  132  uv sync --all-extras
+  133  source .venv/bin/activate
+  134  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  135  pwd
+  136  cd ../../
+  137  ls
+  138  cd Spike3D_ExploreEnv/
+  139  ls
+  140  cd Spike3D/
+  141  git pull
+  142  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  143  ls
+  144  uv add ../pyPhoPlaceCellAnalysis --editable
+  145  deactivate
+  146  uv add ../pyPhoPlaceCellAnalysis --editable
+  147  uv add ../NeuroPy --editable
+  148  rm uv.lock 
+  149  uv lock
+  150  uv sync --all-extras
+  151  pwd
+  152  ls
+  153  uv lock
+  154  uv sync
+  155  uv remove pyside6
+  156  uv remove pyside
+  157  cd ../NeuroPy
+  158  uv lock
+  159  cd ../pyPhoCoreHelpers/
+  160  uv lock
+  161  uv lock --check
+  162  cd ../pyPhoPlaceCellAnalysis/
+  163  uv lock
+  164  cd ../Spike3D
+  165  uv lock
+  166  uv sync
+  167  rm uv.lock 
+  168  uv sync
+  169  uv add pyside
+  170  uv remove datoviz
+  171  uv remove datatoviz
+  172  uv remove pyqtinspect pylustrator
+  173  uv remove pyqtinspect
+  174  pwd
+  175  uv
+  176  uv python pin 3.9
+  177  uv lock
+  178  uv remove pyjsoncanvas
+  179  uv remove qtvoila
+  180  uv lock
+  181  uv sync --all-extras
+  182  source .venv/bin/activate
+  183  which python
+  184  uv upgrade ../pyPhoPlaceCellAnalysis --editable
+  185  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  186  git pull
+  187  pwd
+  188  cd ../../
+  189  ls
+  190  git pull
+  191  uv lock
+  192  cd ../pyPhoPlaceCellAnalysis/
+  193  ls
+  194  git pull
+  195  uv lock
+  196   ../NeuroPy
+  197  cd ../NeuroPy/
+  198  git pull
+  199  uv lock
+  200  cd ../Spike3D
+  201  uv lock
+  202  uv sync --all-extras
+  203  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  204  pwd
+  205  deactivate
+  206  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  207  deactivate
+  208  uv sync --all-extras
+  209  uv lock
+  210  uv remove datoviz
+  211  source .venv/bin/activate
+  212  ./scripts/unix/repos_pull_changes.sh 
+  213  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  214  cd ../../
+  215  ls
+  216  cd Spike3D_ExploreEnv/
+  217  ls
+  218  git status
+  219  cd Spike3D/
+  220  git pull
+  221  git status
+  222  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  223  deactivate
+  224  pwd
+  225  uv sync --all-extras
+  226  source .venv/bin/activate
+  227  jupyter-lab --help
+  228  jupyter server list
+  229  htop
+  230  git status
+  231  git pull
+  232  git status
+  233  pwd
+  234  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  235  pwd
+  236  git pull
+  237  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  238  pwd
+  239  deactivate
+  240  uv sync --all-extras
+  241  uv remove datoviz
+  242  uv sync --all-extras
+  243  ./scripts/unix/repos_pull_changes.sh 
+  244  git status
+  245  git add pyproject.toml 
+  246  git add uv.lock 
+  247  git status
+  248  git commit -m "GL"
+  249  git push
+  250  source .venv/bin/activate
+  251  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  252  git stash save GL
+  253  deactivate
+  254  source /home/halechr/repos/Spike3D/.venv/bin/activate
+  255  uv lock
+  256  uv sync --all-extras
+  257  for global computations: Performing run_specific_computations_single_context(..., computation_functions_name_includelist=['predictive_decoding_analysis'], ...)...
+  258  run_specific_computations_single_context(including only 1 out of 16 registered computation functions): active_computation_functions: [<function PredictiveDecodingComputationsGlobalComputationFunctions.perform_predictive_decoding_analysis at 0x1513e5587430>]...
+  259  Performing _execute_computation_functions(...) with 1 registered_computation_functions...
+  260  Executing [0/1]: <function PredictiveDecodingComputationsGlobalComputationFunctions.perform_predictive_decoding_analysis at 0x150f7fbae670>
+  261  [perform_predictive_decoding_analysis] ========== STARTING ==========
+  262  [perform_predictive_decoding_analysis] Parameters: window_size=2, fine_time_bin_size=0.025, extant_decoded_time_bin_size=0.25
+  263  [perform_predictive_decoding_analysis] Flags: drop_previous_result_and_compute_fresh=False, enable_masked_filtered_container_before_any_comps=True
+  264  [perform_predictive_decoding_analysis] Flags: should_perform_first_pass_compute_future_and_past_analysis=True, enable_filter_and_final_result_processing=True
+  265  [perform_predictive_decoding_analysis] max_workers=1: disabling all parallel execution
+  266  [perform_predictive_decoding_analysis] WARN: include_includelist: ['sprinkle'] is specified but include_includelist is currently ignored! Continuing with defaults.
+  267  [perform_predictive_decoding_analysis] Filtering config: should_filter_by_active_spikes=True (min_spikes=5), should_filter_by_position_like_posterior_bins=True (cutoff=0.42)
+  268  [perform_predictive_decoding_analysis] --- PHASE 1: Loading and masking decoded results ---
+  269  [perform_predictive_decoding_analysis] Loaded DirectionalDecodersDecoded (deepcopy). spikes_df shape: (14486503, 16)
+  270  [perform_predictive_decoding_analysis] Applying masks to 1 time bin size(s)...
+  271  [perform_predictive_decoding_analysis]   Processing time_bin_size 1/1: 0.1s
+  272  The Kernel crashed while executing code in the current cell or a previous cell. 
+  273  Please review the code in the cell(s) to identify a possible cause of the failure. 
+  274  Click here for more info. 
+  275  pwd
+  276  tail -f 2026-02-06_mem_log.txt
+  277  %load_ext memory_profiler
+  278  from memory_profiler import memory_usage
+  279  import time
+  280  def monitor_computation():
+  281      return run_specific_computations_single_context(...)
+  282  # Record memory usage every 0.1 seconds
+  283  mem_use = memory_usage(monitor_computation, interval=0.1)
+  284  import matplotlib.pyplot as plt
+  285  plt.plot(mem_use)
+  286  plt.title('Memory usage over time')
+  287  plt.xlabel('Time (deciseconds)')
+  288  plt.ylabel('Memory usage (MiB)')
+  289  htop -u $USER
+  290  pwd
+  291  cd ../
+  292  cd pyPhoPlaceCellAnalysis/
+  293  uv add ../bayesian_changepoint_detection
+  294  pwd
+  295  cd ../../
+  296  ls
+  297  cd Spike3D_ExploreEnv/
+  298  ls
+  299  cd Spike3D/
+  300  git status
+  301  uv sync --all-extras
+  302  pwd
+  303  cd ../
+  304  git clone https://github.com/estcarisimo/bayesian_changepoint_detection.git
+  305  cd Spike3D/
+  306  git add ../bayesian_changepoint_detection
+  307  uv add ../bayesian_changepoint_detection/
+  308  tar -xvf Spike3DWorkEnv/
+  309  tar -xvf Spike3DWorkEnv.tar.gz Spike3DWorkEnv/
+  310  deactivate
+  311  ls
+  312  pwd
+  313  ./scripts/unix/repos_pull_changes.sh 
+  314  git stash save "GL"
+  315  ls
+  316  pwd
+  317  source deactivate
+  318  rm -rf .venv
+  319  pwd
+  320  ./scripts/unix/repos_pull_changes.sh 
+  321  git status
+  322  git stash save "GL"
+  323  git pull
+  324  git pull --force
+  325  pwd
+  326  cd ../../
+  327  ls
+  328  cd Spike3D_ExploreEnv/
+  329  cd Spike3D/
+  330  uv sync --all-extras
+  331  uv sync
+  332  uv remove datoviz
+  333  uv remove datoviz --group testing
+  334  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  335  uv sync
+  336  uv sync --all-extras
+  337  source .venv/bin/activate
+  338  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  339  pyenv shell 3.9.13
+  340  git pull
+  341  git pull --force
+  342  git status
+  343  git push
+  344  git pull
+  345  git pull --help
+  346  pyenv shell 3.9.13
+  347  git pull
+  348  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  349  deactivate
+  350  rm -rf .venv
+  351  ./scripts/unix/repos_pull_changes.sh 
+  352  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  353  cd ../
+  354  ls
+  355  zip -r Spike3D.zip Spike3D
+  356  cd Spike3D
+  357  deactivate
+  358  ls
+  359  git pull
+  360  ./scripts/unix/repos_pull_changes.sh 
+  361  uv lock
+  362  pwd
+  363  exit
+  364  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  365  cd ../
+  366  ls
+  367  git clone https://github.com/CommanderPho/pyPhoCoreHelpers.git
+  368  cd pyPhoCoreHelpers/
+  369  pwd
+  370  uv lock
+  371   builtin printf "\e[?1049h"
+  372   if [ "$_termius_integration_installed" = "" ]; then  _termius_integration_installed="yes";  builtin printf "\e]4545;A\a";  _termius_encode() {  builtin echo -n "$1" | command base64;  };  _termius_get_trap() {  builtin local -a terms;  builtin eval "terms=( $(trap -p "${1:-DEBUG}") )";  builtin printf '%s' "${terms[2]:-}";  };  _termius_original_PS1="$PS1";  _termius_custom_PS1="";  _termius_in_command_execution="1";  _termius_current_command="";  _termius_current_cwd() {  builtin printf "\e]4545;SetCwd;%s\a" "$(_termius_encode "$PWD")";  };  _termius_prompt_begins() {  builtin printf "\e]4545;ShellPromptBegins\a";  };  _termius_prompt_ends() {  builtin printf "\e]4545;ShellPromptEnds\a";  };  _termius_wrap_prompt() {  builtin printf "\[$(_termius_prompt_begins)\]%s\[$(_termius_prompt_ends)\]" "$1";  };  _termius_command_started() {  builtin printf "\e]4545;CommandStarted;%s\a" "$(_termius_encode "$1")";  };  _termius_command_exited() {  builtin printf "\e]4545;CommandExited;%s\a" "$1";  };  _termius_update_prompt() {  if [ "$_termius_in_command_execution" = "1" ]; then  if [[ "$_termius_custom_PS1" == "" || "$_termius_custom_PS1" != "$PS1" ]]; then  _termius_original_PS1=$PS1;  _termius_custom_PS1=$(_termius_wrap_prompt "$_termius_original_PS1");  PS1="$_termius_custom_PS1";  fi;  _termius_in_command_execution="0";  fi;  };  _termius_precmd() {  if [ "$_termius_current_command" != "" ]; then  _termius_command_exited "$_termius_status";  fi;  _termius_current_cwd;  _termius_current_command="";  _termius_update_prompt;  };  _termius_preexec() {  if [[ ! "$BASH_COMMAND" =~ ^_termius_prompt* ]]; then  if [[ "$BASH_COMMAND" == *"builtin printf \"\\e[?1049l\""* ]]; then  _termius_current_command=$BASH_COMMAND;  else  _termius_current_command="$(builtin history 1 | sed 's/ *[0-9]* *//')";  fi;  else  _termius_current_command="";  fi;  if [ "$_termius_current_command" != "" ]; then  _termius_command_started "$_termius_current_command";  fi;  };  if [[ -n "${bash_preexec_imported:-}" ]]; then  _termius_preexec_only() {  if [ "$_termius_in_command_execution" = "0" ]; then  _termius_in_command_execution="1";  _termius_preexec;  fi;  };  precmd_functions+=(_termius_prompt_cmd);  preexec_functions+=(_termius_preexec_only);  else  _termius_dbg_trap="$(_termius_get_trap DEBUG)";  if [[ -z "$_termius_dbg_trap" ]]; then  _termius_preexec_only() {  if [ "$_termius_in_command_execution" = "0" ]; then  _termius_in_command_execution="1";  _termius_preexec;  fi;  };  trap '_termius_preexec_only "$_"' DEBUG;  elif [[ "$_termius_dbg_trap" != '_termius_preexec "$_"' && "$_termius_dbg_trap" != '_termius_preexec_all "$_"' ]]; then  _termius_preexec_all() {  if [ "$_termius_in_command_execution" = "0" ]; then  _termius_in_command_execution="1";  builtin eval "${_termius_dbg_trap}";  _termius_preexec;  fi;  };  trap '_termius_preexec_all "$_"' DEBUG;  fi;  fi;  _termius_update_prompt;  _termius_restore_exit_code() {  return "$1";  };  _termius_prompt_cmd_original() {  _termius_status="$?";  _termius_restore_exit_code "${_termius_status}";  for cmd in "${_termius_original_prompt_command[@]}"; do  eval "${cmd:-}";  done;  _termius_precmd;  };  _termius_prompt_cmd() {  _termius_status="$?";  _termius_precmd;  };  _termius_original_prompt_command=$PROMPT_COMMAND;  if [[ -z "${bash_preexec_imported:-}" ]]; then  if [[ -n "$_termius_original_prompt_command" && "$_termius_original_prompt_command" != "_termius_prompt_cmd" ]]; then  PROMPT_COMMAND=_termius_prompt_cmd_original;  else  PROMPT_COMMAND=_termius_prompt_cmd;  fi;  fi;  builtin printf "\e]4545;B\a";  fi
+  373   builtin printf "\e[?1049l"
+  374  pwd
+  375  cd ../../
+  376  ls
+  377  cd Spike3D_
+  378  cd Spike3D_ExploreEnv/
+  379  cd Spike3D/
+  380  uv sync --all-extras
+  381  source .venv/bin/activate
+  382  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  383  pwd
+  384  uv sync --all-extras
+  385  uv lock
+  386  uv remove pyjsoncanvas
+  387  pwd
+  388  cd ../../
+  389  ls
+  390  cd Spike3D_ExploreEnv/
+  391  ls
+  392  cd Spike3D/
+  393  ./scripts/unix/repos_pull_changes.sh 
+  394  uv sync --all-extras
+  395  cd ../../
+  396  ls
+  397  cd Spike3D_ExploreEnv/
+  398  ls
+  399  cd Spike3D/
+  400  uv sync --all-extras
+  401  uv lock
+  402  source .venv/bin/activate
+  403  ./scripts/unix/launch_jupyter_lab_with_remote_access.sh 
+  404  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  405  ls
+  406  git status
+  407  cd ../
+  408  ls
+  409  cd Spike3D_ExploreEnv/
+  410  ls
+  411  git pull
+  412  git status
+  413  git pull --force
+  414  git stash save GL
+  415  git stash save "GL"
+  416  cd Spike3D/
+  417  ls
+  418  git status
+  419  git stash save "GL"
+  420  git rebase --skip
+  421  git status
+  422  git pull
+  423  ./scripts/unix/repos_pull_changes.sh 
+  424  cd /home/halechr/cloud
+  425  ls
+  426  cd locker_dataDen/
+  427  ls
+  428  cd ../
+  429  mount_all_cloud_drives 
+  430  mount_locker_dataDen_GL 
+  431  ls
+  432  cd locker_dataDen/
+  433  ls
+  434  cd ../
+  435  cat mount_locker_dataDen_GL
+  436  which mount_locker_dataDen_GL
+  437  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  438  git fsck
+  439  pyenv shell 3.9.13
+  440  git status
+  441  git add SpecificResults/PendingNotebookCode.py 
+  442  git commit -m "GL good"
+  443  git hash-object -w src/pyphoplacecellanalysis/GUI/PyVista/InteractivePlotter/InteractivePlaceCellDataExplorer.py
+  444  pwd
+  445  cd ../../
+  446  ls
+  447  # 1. Delete the corrupted index file
+  448  rm .git/index
+  449  # 2. Rebuild the index from your current working directory
+  450  git reset
+  451  git status
+  452  git add src/pyphoplacecellanalysis/SpecificResults/PendingNotebookCode.py 
+  453  git commit -m "GL"
+  454  git fsck
+  455  # 1. Update the file timestamp so Git registers a change
+  456  touch src/pyphoplacecellanalysis/GUI/PyVista/InteractivePlotter/InteractivePlaceCellDataExplorer.py
+  457  # 2. Stage the file to overwrite the corrupt index reference with a fresh hash
+  458  git add src/pyphoplacecellanalysis/GUI/PyVista/InteractivePlotter/InteractivePlaceCellDataExplorer.py
+  459  # 3. Stage your notebook code
+  460  git add src/pyphoplacecellanalysis/SpecificResults/PendingNotebookCode.py
+  461  # 4. Commit again
+  462  git commit -m "GL"
+  463  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  464  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  465  cd /home/halechr/cloud/turbo/Data
+  466  ls
+  467  cd Bapun/
+  468  ls
+  469  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  470  deactivate 
+  471  uv sync --all-extras
+  472  uv remove datoviz
+  473  uv remove datoviz --group testing
+  474  source .venv/bin/activate
+  475  ./scripts/unix/repos_pull_changes.sh 
+  476  git pull
+  477  ls
+  478  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  479  pwd
+  480  git status
+  481  git stash save "GL"
+  482  git pull
+  483  ./scripts/unix/repos_pull_changes.sh 
+  484  uv sync --all-extras
+  485  ls
+  486  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  487  uv sync --all-extras
+  488  ./scripts/unix/repos_pull_changes.sh 
+  489  pwd
+  490  deactivate
+  491  git pull
+  492  ./scripts/unix/repos_pull_changes.sh 
+  493  pwd
+  494  cd ../
+  495  git clone https://github.com/CommanderPho/NeuroPy.git"
+  496  git clone https://github.com/CommanderPho/NeuroPy.git
+  497  cd NeuroPy/
+  498  git status
+  499  ls
+  500  git checkout feature/safe-advance
+  501  git pull
+  502  uv lock
+  503  pyenv shell 3.9.13
+  504  ls
+  505  pwd
+  506  cd ../../
+  507  ls
+  508  git pull
+  509  git fetch
+  510  git stash save "GL"
+  511  git pull
+  512  cd ../
+  513  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  514  ./scripts/unix/repos_pull_changes.sh 
+  515  uv lock
+  516  uv sync --all-extras
+  517  pyenv shell 3.9.13
+  518  git stash save "GL"
+  519  git pull
+  520  git pull --force
+  521  cd ../
+  522  ls
+  523  pwd
+  524  cd ../
+  525  ls
+  526  git fetch
+  527  pwd
+  528  cd Spike3D
+  529  git pull
+  530  git status
+  531  git stash save "GL"
+  532  git pull
+  533  ./scripts/unix/repos_pull_changes.sh 
+  534  cd ../NeuroPy/
+  535  git status
+  536  git fetch
+  537  git stash save "GL"
+  538  git
+  539  git pull --force
+  540  cd ../
+  541  ls
+  542  rm -rf NeuroPy
+  543  pwd
+  544  pwd
+  545  git pull
+  546  git status
+  547  ./scripts/unix/repos_pull_changes.sh 
+  548  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  549  git stash save "GL"
+  550  pyenv shell 3.9.13
+  551  pwd
+  552  cd ../../
+  553  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/activate
+  554  /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/python /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/ProcessBatchOutputs_qclus1246789_Only.ipy
+  555  git pull
+  556  git status
+  557  git stash save "GL"
+  558  git pull
+  559  pwd
+  560  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-07_11-26-53/run_kdiba_gor01_one_2006-6-07_11-26-53.sh'
+  561  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-08_14-26-15/run_kdiba_gor01_one_2006-6-08_14-26-15.sh'
+  562  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-07_16-40-19/run_kdiba_gor01_two_2006-6-07_16-40-19.sh'
+  563  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-08_21-16-25/run_kdiba_gor01_two_2006-6-08_21-16-25.sh'
+  564  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-09_22-24-40/run_kdiba_gor01_two_2006-6-09_22-24-40.sh'
+  565  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-12_16-53-46/run_kdiba_gor01_two_2006-6-12_16-53-46.sh'
+  566  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-09_17-29-30/run_kdiba_vvp01_one_2006-4-09_17-29-30.sh'
+  567  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-10_12-25-50/run_kdiba_vvp01_one_2006-4-10_12-25-50.sh'
+  568  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-09_16-40-54/run_kdiba_vvp01_two_2006-4-09_16-40-54.sh'
+  569  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-10_12-58-3/run_kdiba_vvp01_two_2006-4-10_12-58-3.sh'
+  570  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_17-46-44/run_kdiba_pin01_one_11-02_17-46-44.sh'
+  571  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_19-28-0/run_kdiba_pin01_one_11-02_19-28-0.sh'
+  572  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-03_12-3-25/run_kdiba_pin01_one_11-03_12-3-25.sh'
+  573  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_fet11-01_12-58-54/run_kdiba_pin01_one_fet11-01_12-58-54.sh'
+  574  git pull
+  575  git status
+  576  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-07_11-26-53/run_kdiba_gor01_one_2006-6-07_11-26-53.sh'
+  577  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-08_14-26-15/run_kdiba_gor01_one_2006-6-08_14-26-15.sh'
+  578  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-07_16-40-19/run_kdiba_gor01_two_2006-6-07_16-40-19.sh'
+  579  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-08_21-16-25/run_kdiba_gor01_two_2006-6-08_21-16-25.sh'
+  580  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-09_22-24-40/run_kdiba_gor01_two_2006-6-09_22-24-40.sh'
+  581  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-12_16-53-46/run_kdiba_gor01_two_2006-6-12_16-53-46.sh'
+  582  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-09_17-29-30/run_kdiba_vvp01_one_2006-4-09_17-29-30.sh'
+  583  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-10_12-25-50/run_kdiba_vvp01_one_2006-4-10_12-25-50.sh'
+  584  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-09_16-40-54/run_kdiba_vvp01_two_2006-4-09_16-40-54.sh'
+  585  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-10_12-58-3/run_kdiba_vvp01_two_2006-4-10_12-58-3.sh'
+  586  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_17-46-44/run_kdiba_pin01_one_11-02_17-46-44.sh'
+  587  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_19-28-0/run_kdiba_pin01_one_11-02_19-28-0.sh'
+  588  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-03_12-3-25/run_kdiba_pin01_one_11-03_12-3-25.sh'
+  589  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_fet11-01_12-58-54/run_kdiba_pin01_one_fet11-01_12-58-54.sh'
+  590  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-08_14-26-15/run_kdiba_gor01_one_2006-6-08_14-26-15.sh'
+  591  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-09_1-22-43/run_kdiba_gor01_one_2006-6-09_1-22-43.sh'
+  592  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-12_15-55-31/run_kdiba_gor01_one_2006-6-12_15-55-31.sh'
+  593  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-07_16-40-19/run_kdiba_gor01_two_2006-6-07_16-40-19.sh'
+  594  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-08_21-16-25/run_kdiba_gor01_two_2006-6-08_21-16-25.sh'
+  595  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-09_22-24-40/run_kdiba_gor01_two_2006-6-09_22-24-40.sh'
+  596  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-12_16-53-46/run_kdiba_gor01_two_2006-6-12_16-53-46.sh'
+  597  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-10_12-25-50/run_kdiba_vvp01_one_2006-4-10_12-25-50.sh'
+  598  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-09_16-40-54/run_kdiba_vvp01_two_2006-4-09_16-40-54.sh'
+  599  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-10_12-58-3/run_kdiba_vvp01_two_2006-4-10_12-58-3.sh'
+  600  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_fet11-01_12-58-54/run_kdiba_pin01_one_fet11-01_12-58-54.sh'
+  601  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_17-46-44/run_kdiba_pin01_one_11-02_17-46-44.sh'
+  602  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/activate
+  603  cd Spike3D/
+  604  ipython ProcessBatchOutputs_qclus1246789_Only.ipy 
+  605  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/activate
+  606  uv sync --all-extras
+  607  cd Spike3D/
+  608  uv sync --all-extras
+  609  python ProcessBatchOutputs.ipy
+  610  ipython ProcessBatchOutputs.ipy
+  611  pwd
+  612  source .venv/bin/activate
+  613  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-08_14-26-15/run_kdiba_gor01_one_2006-6-08_14-26-15.sh'
+  614  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-09_1-22-43/run_kdiba_gor01_one_2006-6-09_1-22-43.sh'
+  615  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-12_15-55-31/run_kdiba_gor01_one_2006-6-12_15-55-31.sh'
+  616  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-07_16-40-19/run_kdiba_gor01_two_2006-6-07_16-40-19.sh'
+  617  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-08_21-16-25/run_kdiba_gor01_two_2006-6-08_21-16-25.sh'
+  618  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-09_22-24-40/run_kdiba_gor01_two_2006-6-09_22-24-40.sh'
+  619  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-12_16-53-46/run_kdiba_gor01_two_2006-6-12_16-53-46.sh'
+  620  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-10_12-25-50/run_kdiba_vvp01_one_2006-4-10_12-25-50.sh'
+  621  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-09_16-40-54/run_kdiba_vvp01_two_2006-4-09_16-40-54.sh'
+  622  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-10_12-58-3/run_kdiba_vvp01_two_2006-4-10_12-58-3.sh'
+  623  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_fet11-01_12-58-54/run_kdiba_pin01_one_fet11-01_12-58-54.sh'
+  624  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_17-46-44/run_kdiba_pin01_one_11-02_17-46-44.sh'
+  625  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/activate
+  626  /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/python /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/ProcessBatchOutputs_qclus1246789_Only.ipy
+  627  pwd
+  628  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-08_14-26-15/run_kdiba_gor01_one_2006-6-08_14-26-15.sh'
+  629  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-09_1-22-43/run_kdiba_gor01_one_2006-6-09_1-22-43.sh'
+  630  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-12_15-55-31/run_kdiba_gor01_one_2006-6-12_15-55-31.sh'
+  631  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-07_16-40-19/run_kdiba_gor01_two_2006-6-07_16-40-19.sh'
+  632  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-08_21-16-25/run_kdiba_gor01_two_2006-6-08_21-16-25.sh'
+  633  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-09_22-24-40/run_kdiba_gor01_two_2006-6-09_22-24-40.sh'
+  634  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-12_16-53-46/run_kdiba_gor01_two_2006-6-12_16-53-46.sh'
+  635  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-10_12-25-50/run_kdiba_vvp01_one_2006-4-10_12-25-50.sh'
+  636  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-09_16-40-54/run_kdiba_vvp01_two_2006-4-09_16-40-54.sh'
+  637  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-10_12-58-3/run_kdiba_vvp01_two_2006-4-10_12-58-3.sh'
+  638  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_fet11-01_12-58-54/run_kdiba_pin01_one_fet11-01_12-58-54.sh'
+  639  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_17-46-44/run_kdiba_pin01_one_11-02_17-46-44.sh'
+  640  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/activate
+  641  /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/python /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/ProcessBatchOutputs_qclus1246789_Only.ipy
+  642  ls
+  643  cd Desktop/
+  644  ls
+  645  cd ../
+  646  ls
+  647  cd /scratch/kdiba_root/
+  648  ls
+  649  cd kdiba99
+  650  ls
+  651  cd halechr/
+  652  ls
+  653  cd repos/
+  654  ls
+  655  cd Spike3DEnv_KDibaVersion/
+  656  ls
+  657  cd Spike3D/
+  658  git status
+  659  uv sync --all-extras
+  660  source .venv/bin/activate
+  661  ipython ProcessBatchOutputs_qclus1246789_Only.ipy 
+  662  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-08_14-26-15/run_kdiba_gor01_one_2006-6-08_14-26-15.sh'
+  663  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-09_1-22-43/run_kdiba_gor01_one_2006-6-09_1-22-43.sh'
+  664  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-12_15-55-31/run_kdiba_gor01_one_2006-6-12_15-55-31.sh'
+  665  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-07_16-40-19/run_kdiba_gor01_two_2006-6-07_16-40-19.sh'
+  666  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-08_21-16-25/run_kdiba_gor01_two_2006-6-08_21-16-25.sh'
+  667  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-09_22-24-40/run_kdiba_gor01_two_2006-6-09_22-24-40.sh'
+  668  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-12_16-53-46/run_kdiba_gor01_two_2006-6-12_16-53-46.sh'
+  669  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-10_12-25-50/run_kdiba_vvp01_one_2006-4-10_12-25-50.sh'
+  670  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-09_16-40-54/run_kdiba_vvp01_two_2006-4-09_16-40-54.sh'
+  671  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-10_12-58-3/run_kdiba_vvp01_two_2006-4-10_12-58-3.sh'
+  672  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_fet11-01_12-58-54/run_kdiba_pin01_one_fet11-01_12-58-54.sh'
+  673  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_17-46-44/run_kdiba_pin01_one_11-02_17-46-44.sh'
+  674  ipython ProcessBatchOutputs_qclus1246789_Only.ipy 
+  675  cd /scratch/kdiba_root/kdiba99/halechr/
+  676  ls
+  677  cd repos/
+  678  ls
+  679  cd Spike3DEnv_KDibaVersion/
+  680  ls
+  681  cd Spike3D/
+  682  source .venv/bin/activate
+  683  ls
+  684  chmod +x ProcessBatchOutputs*
+  685  ls
+  686  htop
+  687  git status
+  688  pwd
+  689  git status
+  690  git add ProcessBatchOutputs_*
+  691  git status
+  692  git add ProcessBatchOutputs.ipy 
+  693  git commit -m "GL"
+  694  nano .gitignore 
+  695  git status
+  696  git add .gitignore 
+  697  git commit -m "ignored slurm outputs""
+  698  "
+  699  git status
+  700  git pull
+  701  git push
+  702  nano ProcessBatchOutputs_qclus1246789_Only.ipy 
+  703  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-08_14-26-15/run_kdiba_gor01_one_2006-6-08_14-26-15.sh'
+  704  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-09_1-22-43/run_kdiba_gor01_one_2006-6-09_1-22-43.sh'
+  705  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_one_2006-6-12_15-55-31/run_kdiba_gor01_one_2006-6-12_15-55-31.sh'
+  706  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-07_16-40-19/run_kdiba_gor01_two_2006-6-07_16-40-19.sh'
+  707  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-08_21-16-25/run_kdiba_gor01_two_2006-6-08_21-16-25.sh'
+  708  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-09_22-24-40/run_kdiba_gor01_two_2006-6-09_22-24-40.sh'
+  709  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_gor01_two_2006-6-12_16-53-46/run_kdiba_gor01_two_2006-6-12_16-53-46.sh'
+  710  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_one_2006-4-10_12-25-50/run_kdiba_vvp01_one_2006-4-10_12-25-50.sh'
+  711  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-09_16-40-54/run_kdiba_vvp01_two_2006-4-09_16-40-54.sh'
+  712  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_vvp01_two_2006-4-10_12-58-3/run_kdiba_vvp01_two_2006-4-10_12-58-3.sh'
+  713  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_fet11-01_12-58-54/run_kdiba_pin01_one_fet11-01_12-58-54.sh'
+  714  sbatch '/nfs/turbo/umms-kdiba/Pho/Output/gen_scripts/run_kdiba_pin01_one_11-02_17-46-44/run_kdiba_pin01_one_11-02_17-46-44.sh'
+  715  pwd
+  716  source .venv/bin/activate
+  717  ipython ProcessBatchOutputs_qclus1246789_Only.ipy 
+  718  cd Spike3D
+  719  git pull
+  720  ls
+  721  ./scripts/unix/repos_pull_changes.sh 
+  722  uv lock
+  723  uv-deps-switcher dev
+  724  uv lock
+  725  uv-deps-switcher dev
+  726  uv lock
+  727  uv sync --all-extras
+  728  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  729  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/activate
+  730  uv lock
+  731  uv sync --all-extras
+  732  pyenv shell 3.9.13
+  733  pwd
+  734  ./scripts/unix/repos_pull_changes.sh 
+  735  uv lock
+  736  uv sync --all-extras
+  737  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3DEnv_KDibaVersion/Spike3D/.venv/bin/activate
+  738  pyenv shell 3.9.13
+  739  git stash save "GL"
+  740  git status
+  741  pwd
+  742  ls
+  743  cd ../../
+  744  ls
+  745  git status
+  746  git pull
+  747  git pull --force
+  748  ./scripts/unix/repos_pull_changes.sh 
+  749  pwd
+  750  source /scratch/kdiba_root/kdiba99/halechr/repos/Spike3D_ExploreEnv/Spike3D/.venv/bin/activate
+  751  deactivate
+  752  uv lock
+  753  git pull
+  754  git sdtatus
+  755  git status
+  756  git add uv.lock 
+  757  git commit -m "GL"
+  758  git pull
+  759  ./scripts/unix/repos_pull_changes.sh 
+  760  uv lock
+  761  uv sync --all-extras
+  762  source .venv/bin/activate
+  763  ipython ProcessBatchOutputs_Bapun_Batch.ipy 
+  764  micromamba activate circus
+  765  eval "$(micromamba shell hook --shell=bash)"
+  766  pwd
+  767  cd Day1Openfield/
+  768  ls
+  769  cd spyk-circ/
+  770  ls
+  771  rm -rf RatS-Day1Openfield
+  772  ls
+  773  micromamba activate circus
+  774  pwd
+  775  ls
+  776  spyking-circus RatS-Day1Openfield.dat -c 32
+  777  ls
+  778  cd ~/cloud/turbo/
+  779  ls
+  780  cd Bapun/
+  781  ls
+  782  cd RatS
+  783  ls
+  784  cat README.md 
+  785  micromamba activate circus
+  786  eval "$(micromamba shell hook --shell=bash)"
+  787  micromamba activate circus
+  788  micromamba install -c conda-forge -c spyking-circus spyking-circus
+  789  pyenv shell 3.9.13
+  790  eval "$(micromamba shell hook --shell=bash)"
+  791  micromamba env list
+  792  micromamba activate phy2
+  793  ls
+  794  cd Day1Openfield/
+  795  cd spyk-circ/RatS-Day1Openfield
+  796  ls
+  797  cd ../
+  798  pyenv shell 3.9.13
+  799  history
+  800  eval "$(micromamba shell hook --shell=bash)"
+  801  micromamba activate circus
+  802  pwd
+  803  ls
+  804  cd Day1Openfield/
+  805  ls
+  806  cd spyk-circ/
+  807  ls -la
+  808  spyking-circus RatS-Day1Openfield.dat -c 32
+  809  spyking-circus RatS-Day1Openfield.dat -c 16
+  810  spyking-circus RatS-Day1Openfield.dat -c 15
+  811  pyenv shell 3.9.13
+  812  cd Day4Openfield/
+  813  cd spyk-circ/
+  814  ls
+  815  ln -s ../_BAK/RatS-Day4Openfield.dat RatS-Day4Openfield.dat
+  816  mamba
+  817  micromamba activate circus
+  818  eval "$(micromamba shell hook --shell=bash)"
+  819  micromamba activate circus
+  820  spyking-circus spyking-circus RatS-Day4Openfield.dat --cpu 15
+  821  spyking-circus RatS-Day4Openfield.dat --cpu 15
+  822  ls
+  823  pwd
+  824  rm -rf RatS-Day4Openfield
+  825  rm RatS-Day4Openfield.dat 
+  826  pwd
+  827  ln -s ../RatS-Day4Openfield.dat RatS-Day4Openfield.dat
+  828  spyking-circus RatS-Day4Openfield.dat --cpu 20
+  829  ls
+  830  pwd
+  831  rm RatS-Day4Openfield.dat 
+  832  cp ../RatS-Day4Openfield.dat RatS-Day4Openfield.dat
+  833  cd /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/spyk-circ
+  834  ls
+  835  cd ../
+  836  ls
+  837  chmod +x ConcatenateDatFiles.sh 
+  838  ./ConcatenateDatFiles.sh 
+  839  InputFile1=/nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/Raw_data/2020-12-02_10-54-43/experiment1/recording1/continuous/Intan_Rec._Controller-100.0/continuous.dat
+  840  InputFile2=/nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/Raw_data/2020-12-02_11-37-13/experiment1/recording1/continuous/Intan_Rec._Controller-100.0/continuous.dat
+  841  InputFile3=/nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/Raw_data/2020-12-02_14-46-16/experiment1/recording1/continuous/Intan_Rec._Controller-100.0/continuous.dat
+  842  OutputFile=/nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.dat
+  843  cat ${InputFile1} ${InputFile2} ${InputFile3} > ${OutputFile}
+  844  cd /nfs/turbo/umms-kdiba/Bapun/RatS/Day1Openfield/spyk-circ
+  845  mamba activate circus
+  846  micromamba activate circus
+  847  eval "$(micromamba shell hook --shell=bash)"
+  848  micromamba activate circus
+  849  spyking-circus RatS-Day1Openfield.dat --cpu 30
+  850  spyking-circus RatS-Day1Openfield.dat --cpu 16
+  851  ls
+  852  rm RatS-Day1Openfield.dat
+  853  cp ../RatS-Day1Openfield.dat RatS-Day1Openfield.dat
+  854  spyking-circus RatS-Day1Openfield.dat --cpu 15
+  855  spyking-circus RatS-Day1Openfield.dat --cpu 8
+  856  pyenv shell 3.9.13
+  857  micromamba activate circus
+  858  pwd
+  859  cd Day4Openfield/
+  860  cd spyk-circ/
+  861  cd ../../
+  862  cd Day1Openfield/
+  863  cd spyk-circ/
+  864  spyking-circus RatS-Day1Openfield.dat -m converting -e merged
+  865  deactivate
+  866  micromamba deactivate
+  867  micromamba activate phy2
+  868  phy template-gui params.py
+  869  ls
+  870  pwd
+  871  phy template-gui
+  872  ls
+  873  phy template-gui RatS-Day1Openfield.params 
+  874  cd /nfs/turbo/umms-kdiba/Bapun/RatS/Day1Openfield/spyk-circ/RatS-Day1Openfield/RatS-Day1Openfield-merged.GUI
+  875  phy template-gui RatS-Day1Openfield.params 
+  876  phy template-gui params.py 
+  877  micromamba activate circus
+  878  micromamba shell init --shell=bash --prefix=~/micromamba
+  879  micromamba activate circus
+  880  eval "$(micromamba shell hook --shell=bash)"
+  881  micromamba activate circus
+  882  micromamba
+  883  mamba
+  884  eval "$(micromamba shell hook --shell=bash)"
+  885  micromamba
+  886  eval "$(micromamba shell hook --shell=bash)"
+  887  micromamba activate circus
+  888  spyking-circus RatS-Day1Openfield.dat --cpu 15
+  889  pwd
+  890  cd /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/spyk-circ
+  891  meval "$(micromamba shell hook --shell=bash)"
+  892  micromamba activate circus
+  893  eval "$(micromamba shell hook --shell=bash)"
+  894  micromamba activate circus
+  895  ls
+  896  spyking-circus RatS-Day1Openfield.dat -c 15
+  897  ls
+  898  pwd
+  899  spyking-circus RatS-Day4Openfield.dat -c 15
+  900  deactivate
+  901  micromamba deactivate
+  902  micromamba activate phy
+  903  micromamba activate phy2
+  904  ls
+  905  cd RatS-Day4Openfield
+  906  ls
+  907  cd ../
+  908  ls
+  909  cd RatS-Day4Openfield
+  910  ls
+  911  cd RatS-Day4Openfield
+  912  ls
+  913  cd ../
+  914  micromamba activate circus
+  915  pwd
+  916  cd ../
+  917  spyking-circus RatS-Day4Openfield.dat -m converting -e merged
+  918  pyenv shell 3.9.13
+  919  uv lock
+  920  cd bapun_sess_init_scripts/
+  921  ls
+  922  uv lock
+  923  uv sync --all-extras
+  924  uv add PyQt5
+  925  rm uv.lock 
+  926  uv lock
+  927  uv sync
+  928  uv sync --all-extras
+  929  uv add PyQt6
+  930  ldd --version
+  931  uv add "pyside6<6.10"
+  932  uv add "pyqt6<6.10"
+  933  uv lock
+  934  uv add "pyqt6<6.10"
+  935  uv remove pyside6
+  936  uv lock
+  937  pwd
+  938  uv tool
+  939  uv tool upgrade
+  940  uv tool upgrade uv-deps-switcher
+  941  uv-deps-switcher 
+  942  uv-deps-switcher dev
+  943  uv lock
+  944  uv sync
+  945  uv-deps-switcher 
+  946  cd ../
+  947  ls
+  948  cd NeuroPy/
+  949  git status
+  950  git pull
+  951  uv lock
+  952  rm -rf .venv
+  953  uv lock
+  954  uv sync --all-extras
+  955  cd bapun_sess_init_scripts/
+  956  git pull
+  957  git stash save "GL"
+  958  git pull
+  959  uv lock
+  960  uv sync --all-extras
+  961  uv lock
+  962  uv add pyqt5
+  963  uv lock
+  964  uv add pyqt5
+  965  uv add PyQt5
+  966  uv lock
+  967  uv sync --all-extras
+  968  rm -rf .venv
+  969  pyenv shell 3.9.13
+  970  cd bapun_sess_init_scripts/
+  971  git pull
+  972  uv lock
+  973  uv sync
+  974  uv remove pyside6
+  975  uv lock
+  976  uv sync
+  977  uv lock
+  978  uv add PyQt5
+  979  uv lock
+  980  uv syc
+  981  uv sync
+  982  uv remove spikeinterface-gui
+  983  uv lock
+  984  uv sync --all-extras
+  985  pwd
+  986  uv run ipython kernel install --user --name=bapun-sess-init-UV
+  987  pyenv shell 3.9.13
+  988  pwd
+  989  cd bapun_sess_init_scripts/
+  990  git status
+  991  git pull
+  992  git stash save "GL"
+  993  cd /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/spyk-circ/RatS-Day4Openfield/RatS-Day4Openfield-merged.GUI
+  994  ls
+  995  mamba phy2 activate
+  996  micromamba phy2 activate
+  997  micromamba activate phy2
+  998  pwd
+  999  phy 
+ 1000  phy template-gui params.py 
+ 1001  pyenv shell 3.9.13
+ 1002  ls
+ 1003  cd bapun_sess_init_scripts/
+ 1004  uv sync --all-extras
+ 1005  source .venv/bin/activate
+ 1006  uv run si-run-sorter run   --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield   --basename RatS-Day4Openfield   --sorter spykingcircus2   --run-name folder_SC2   --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
+ 1007  cd /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day1Openfield
+ 1008  uv run si-run-sorter run   --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day1Openfield   --basename RatS-Day1Openfield   --sorter spykingcircus2   --run-name folder_SC2   --export-phy   --phy-export-folder /nfs/turbo/umms-kdiba/Bapun/RatS/Day1Openfield/SORTING/folder_SC2_phy   --n-jobs 9   --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
+ 1009  nvidia-smi
+ 1010  uv run python -c "import torch; assert torch.cuda.is_available(); print(torch.cuda.get_device_name(0))"
+ 1011  uv run si-run-sorter list | grep kilosort4
+ 1012  history
+ 1013  history > ../bapun_sess_init_scripts/EXTERNAL/RUN_LOGS/2026-06-02_437pm_GreatlakesCPU_spykingcircus2_run_history.log
