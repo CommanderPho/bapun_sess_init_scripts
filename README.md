@@ -578,3 +578,12 @@ cd "W:\Data\Bapun\RatS\Day4Openfield\spyk-circ\RatS-Day4Openfield\RatS-Day4Openf
 micromamba activate phy2
 phy template-gui params.py
 ```
+
+
+
+# GreatLakes PyQt6 Compatibility Issue
+
+```bash
+uv add "pyside6<6.10"
+uv add "pyqt6<6.10"
+```
