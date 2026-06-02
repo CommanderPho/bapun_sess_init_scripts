@@ -17,7 +17,7 @@ def export_curation_review_csv(comparison: pd.DataFrame, good_units: pd.Index, o
     return output_path
 
 
-def write_phy_cluster_info(paths: SessionPaths, all_labels: pd.DataFrame, good_units: pd.Index, *, strategy: str, require_cluster_info: bool = True, q_labels: pd.Series | None = None) -> Path | None:
+def write_phy_cluster_info(paths: SessionPaths, all_labels: pd.DataFrame, good_units: pd.Index, *, strategy: str, require_cluster_info: bool = True, q_labels: pd.Series | None = None, preserve_human_labels: bool = True) -> Path | None:
     cluster_info_path = paths.phy_gui_dir / "cluster_info.tsv"
     if not (cluster_info_path.exists() and cluster_info_path.is_file()):
         message = f"cluster_info.tsv does not exist: {cluster_info_path}. Launch Phy to create this file."
@@ -30,12 +30,24 @@ def write_phy_cluster_info(paths: SessionPaths, all_labels: pd.DataFrame, good_u
     cluster_id_col = "cluster_id" if "cluster_id" in cluster_info.columns else "id"
     phy_groups = all_labels["prediction"].map(PHY_LABEL_MAP).fillna("")
     cluster_ids = cluster_info[cluster_id_col]
-    cluster_info["group"] = cluster_ids.map(phy_groups).fillna(cluster_info["group"])
+    existing_group = cluster_info.get("group", pd.Series("", index=cluster_info.index)).fillna("").astype(str).str.strip().str.lower()
+    existing_q = cluster_info.get("q", pd.Series("", index=cluster_info.index)).fillna("").astype(str).str.strip()
+    manual_groups = {"good", "mua", "noise"}
+    manual_label_mask = existing_group.isin(manual_groups) | existing_q.ne("")
+    mapped_group = cluster_ids.map(phy_groups).fillna(cluster_info.get("group", pd.Series("", index=cluster_info.index)))
+    if preserve_human_labels:
+        cluster_info["group"] = cluster_info.get("group", pd.Series("", index=cluster_info.index)).where(manual_label_mask, mapped_group)
+    else:
+        cluster_info["group"] = mapped_group
     cluster_info["model_prediction"] = cluster_ids.map(all_labels["prediction"])
     cluster_info["model_probability"] = cluster_ids.map(all_labels["probability"])
     cluster_info["curation_strategy"] = strategy
     cluster_info["good_unit"] = cluster_ids.isin(good_units)
     if q_labels is not None:
-        cluster_info["q"] = cluster_ids.map(q_labels).fillna("")
+        mapped_q = cluster_ids.map(q_labels).fillna("")
+        if preserve_human_labels:
+            cluster_info["q"] = existing_q.where(manual_label_mask, mapped_q)
+        else:
+            cluster_info["q"] = mapped_q
     cluster_info.to_csv(cluster_info_path, sep="\t", index=False)
     return cluster_info_path

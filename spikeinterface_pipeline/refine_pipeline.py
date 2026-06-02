@@ -44,7 +44,7 @@ def run_phy_refinement_pipeline(session: BapunSessionConfig, curation: CurationC
 
     cluster_info_path = None
     if curation.write_cluster_info and not dry_run:
-        cluster_info_path = write_phy_cluster_info(paths, all_labels, good_units, strategy=curation.strategy, require_cluster_info=curation.require_cluster_info, q_labels=q_labels)
+        cluster_info_path = write_phy_cluster_info(paths, all_labels, good_units, strategy=curation.strategy, require_cluster_info=curation.require_cluster_info, q_labels=q_labels, preserve_human_labels=curation.preserve_human_phy_labels)
 
     return PhyCurationResult(sorting=refined_sorting, sorting_analyzer=sorting_analyzer, analyzer_neural=analyzer_neural, all_labels=all_labels, comparison=comparison, good_units=good_units, sorting_curated=sorting_curated, paths=paths, curation_review_path=review_path, cluster_info_path=cluster_info_path)
 

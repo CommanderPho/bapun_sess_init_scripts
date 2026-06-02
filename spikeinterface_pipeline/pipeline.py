@@ -28,5 +28,5 @@ def run_phy_curation_pipeline(session: BapunSessionConfig, curation: CurationCon
     if curation.export_review_csv:
         curation_review_path = export_curation_review_csv(comparison, good_units, paths.curation_review_path)
     if curation.write_cluster_info:
-        cluster_info_path = write_phy_cluster_info(paths, all_labels, good_units, strategy=curation.strategy, require_cluster_info=curation.require_cluster_info)
+        cluster_info_path = write_phy_cluster_info(paths, all_labels, good_units, strategy=curation.strategy, require_cluster_info=curation.require_cluster_info, preserve_human_labels=curation.preserve_human_phy_labels)
     return PhyCurationResult(sorting=sorting, sorting_analyzer=sorting_analyzer, analyzer_neural=analyzer_neural, all_labels=all_labels, comparison=comparison, good_units=good_units, sorting_curated=sorting_curated, paths=paths, curation_review_path=curation_review_path, cluster_info_path=cluster_info_path)

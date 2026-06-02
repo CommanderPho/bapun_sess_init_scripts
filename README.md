@@ -98,6 +98,8 @@ uv run si-refine-phy \
 
 This writes `group` and `q` into `cluster_info.tsv` (`q`: 1 amazing, 2 good, 3 sad, 6 mua, 8 interneuron), plus a `{basename}-refinement_review.csv` summary file in `spyk-circ`.
 
+By default, existing human-labeled Phy clusters are preserved and not overwritten during `cluster_info.tsv` updates. To force overwrite behavior, add `--overwrite-human-phy-labels`.
+
 **SpikeInterface-GUI (optional interactive viewer):** `spikeinterface-gui` is installed with `uv sync`. After running the curation pipeline in `notebooks/pho_SpikeInterface_based.ipynb`, set `LAUNCH_SPIKEINTERFACE_GUI = True` in the final optional cell to open the desktop viewer. CLI alternative:
 
 ```bash

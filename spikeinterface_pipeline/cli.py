@@ -23,13 +23,14 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--skip-cluster-info", action="store_true", help="Do not write cluster_info.tsv")
     parser.add_argument("--allow-missing-cluster-info", action="store_true", help="Do not fail if cluster_info.tsv is missing")
     parser.add_argument("--skip-review-csv", action="store_true", help="Do not write curation review CSV")
+    parser.add_argument("--overwrite-human-phy-labels", action="store_true", help="Allow algorithmic updates to overwrite existing human Phy group/q labels")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     session = BapunSessionConfig(basedir=args.basedir, basename=args.basename, n_channels=args.n_channels, dat_file_sampling_rate=args.dat_sampling_rate, gain_to_uV=args.gain_to_uv)
-    curation = CurationConfig(strategy=args.strategy, prob_default=args.prob_default, prob_high=args.prob_high, analyzer_overwrite=args.analyzer_overwrite, n_jobs=args.n_jobs, write_cluster_info=not args.skip_cluster_info, require_cluster_info=not args.allow_missing_cluster_info, export_review_csv=not args.skip_review_csv)
+    curation = CurationConfig(strategy=args.strategy, prob_default=args.prob_default, prob_high=args.prob_high, analyzer_overwrite=args.analyzer_overwrite, n_jobs=args.n_jobs, write_cluster_info=not args.skip_cluster_info, require_cluster_info=not args.allow_missing_cluster_info, export_review_csv=not args.skip_review_csv, preserve_human_phy_labels=not args.overwrite_human_phy_labels)
     result = run_phy_curation_pipeline(session, curation, patch_pandas_compat=args.patch_pandas_compat)
     print(f"Strategy: {curation.strategy} -> {len(result.good_units)} good units (of {len(result.all_labels)} total)")
     print(f"Model predictions:\n{result.all_labels['prediction'].value_counts()}")

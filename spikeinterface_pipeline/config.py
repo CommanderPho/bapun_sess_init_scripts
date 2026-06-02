@@ -34,6 +34,7 @@ class CurationConfig:
     write_cluster_info: bool = True
     require_cluster_info: bool = True
     export_review_csv: bool = True
+    preserve_human_phy_labels: bool = True
 
 
 @dataclass
