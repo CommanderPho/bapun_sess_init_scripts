@@ -100,6 +100,34 @@ This writes `group` and `q` into `cluster_info.tsv` (`q`: 1 amazing, 2 good, 3 s
 
 By default, existing human-labeled Phy clusters are preserved and not overwritten during `cluster_info.tsv` updates. To force overwrite behavior, add `--overwrite-human-phy-labels`.
 
+**Run a new spike sorter from CLI (optional Phy export):**
+
+```bash
+uv run si-run-sorter list
+
+uv run si-run-sorter run \
+  --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --sorter kilosort4 \
+  --run-name folder_KS4_v1
+```
+
+This writes sorter output under `{basedir}/SORTING/{run-name}` (or `--output-folder` if provided). To resolve paths and settings without running, add `--dry-run`.
+
+For a Phy-compatible export:
+
+```bash
+uv run si-run-sorter run \
+  --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --sorter kilosort4 \
+  --run-name folder_KS4_v1 \
+  --export-phy \
+  --phy-export-folder /home/halechr/FastData/Bapun/RatS/Day1Openfield/SORTING/folder_KS4_v1_phy
+```
+
+The exported folder is separate from legacy `spyk-circ/*-merged.GUI` outputs used by `si-curate-phy` / `si-refine-phy`.
+
 **SpikeInterface-GUI (optional interactive viewer):** `spikeinterface-gui` is installed with `uv sync`. After running the curation pipeline in `notebooks/pho_SpikeInterface_based.ipynb`, set `LAUNCH_SPIKEINTERFACE_GUI = True` in the final optional cell to open the desktop viewer. CLI alternative:
 
 ```bash

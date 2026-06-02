@@ -31,6 +31,7 @@ dependencies = [
 [project.scripts]
 si-curate-phy = "spikeinterface_pipeline.cli:main"
 si-refine-phy = "spikeinterface_pipeline.cli_refine:main"
+si-run-sorter = "spikeinterface_pipeline.cli_sort:main"
 
 [build-system]
 requires = ["hatchling"]

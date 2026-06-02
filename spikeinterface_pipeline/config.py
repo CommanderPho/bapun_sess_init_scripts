@@ -24,6 +24,25 @@ class BapunSessionConfig:
 
 
 @dataclass
+class SortingConfig:
+    sorter_name: str
+    output_folder: Path | None = None
+    run_name: str | None = None
+    use_filtered_recording: bool = False
+    remove_existing_folder: bool = False
+    delete_output_folder: bool = False
+    verbose: bool = True
+    export_phy: bool = False
+    phy_export_folder: Path | None = None
+    analyzer_overwrite: AnalyzerOverwriteMode = "if_missing"
+    n_jobs: int = 8
+    sorter_params: dict[str, object] = field(default_factory=dict)
+    docker_image: bool | str | None = False
+    singularity_image: bool | str | None = False
+    delete_container_files: bool = True
+
+
+@dataclass
 class CurationConfig:
     strategy: GoodUnitStrategy = "sua_relaxed_prob"
     prob_default: float = 0.65
@@ -72,3 +91,12 @@ class PhyCurationResult:
     paths: object
     curation_review_path: Path | None = None
     cluster_info_path: Path | None = None
+
+
+@dataclass
+class SortingResult:
+    sorter_name: str
+    output_folder: Path
+    phy_export_folder: Path | None = None
+    analyzer_folder: Path | None = None
+    sorting: object | None = None
