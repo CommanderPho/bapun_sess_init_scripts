@@ -110,6 +110,19 @@ uv run si-run-sorter run \
   --basename RatS-Day1Openfield \
   --sorter kilosort4 \
   --run-name folder_KS4_v1
+
+
+
+uv run si-run-sorter run \
+  --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield \
+  --basename RatS-Day4Openfield \
+  --sorter kilosort4 \
+  --run-name folder_KS4_v1
+
+
+
+
+
 ```
 
 This writes sorter output under `{basedir}/SORTING/{run-name}` (or `--output-folder` if provided). To resolve paths and settings without running, add `--dry-run`.
@@ -664,4 +677,33 @@ phy template-gui params.py
 ```bash
 uv add "pyside6<6.10"
 uv add "pyqt6<6.10"
+```
+
+
+# Greatlakes 2026-06-02 Runs
+
+
+```bash
+cd '/nfs/turbo/umms-kdiba/Bapun/RatS/bapun_sess_init_scripts'
+git pull
+uv sync --all-extras
+```
+
+```bash
+uv run si-run-sorter run \
+  --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield \
+  --basename RatS-Day4Openfield \
+  --sorter kilosort4 \
+  --run-name folder_KS4_v1
+
+```
+
+
+```bash
+uv run si-run-sorter run \
+  --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield \
+  --basename RatS-Day4Openfield \
+  --sorter spykingcircus2 \
+  --run-name folder_SC2 \
+  --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
 ```
