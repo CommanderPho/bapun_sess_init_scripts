@@ -120,7 +120,7 @@ uv run si-run-sorter run \
   --run-name folder_KS4_v1
 
 
-
+uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /home/halechr/FastData/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1_phy
 
 
 ```
@@ -706,4 +706,53 @@ uv run si-run-sorter run \
   --sorter spykingcircus2 \
   --run-name folder_SC2 \
   --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
+```
+
+```
+5<00:00,  3.82it/s]
+Found 10070422 spikes
+Kept 98 units after final merging
+spykingcircus2 run time 2557.95s
+sorter=spykingcircus2
+output_folder=/nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/SORTING/folder_SC2
+dry_run=False
+num_units=98
+num_segments=1
+```
+
+
+
+```bash
+uv run si-run-sorter run \
+  --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --sorter spykingcircus2 \
+  --run-name folder_SC2 \
+  --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
+
+
+uv run si-run-sorter run \
+  --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --sorter spykingcircus2 \
+  --run-name folder_SC2 \
+  --export-phy \
+  --phy-export-folder /nfs/turbo/umms-kdiba/Bapun/RatS/Day1Openfield/SORTING/folder_SC2_phy \
+  --n-jobs 9 \
+  --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
+
+
+
+```
+
+```
+5<00:00,  3.82it/s]
+Found 10070422 spikes
+Kept 98 units after final merging
+spykingcircus2 run time 2557.95s
+sorter=spykingcircus2
+output_folder=/nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/SORTING/folder_SC2
+dry_run=False
+num_units=98
+num_segments=1
 ```
