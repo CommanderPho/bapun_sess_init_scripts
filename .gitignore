@@ -12,3 +12,6 @@ wheels/
 # uv-deps-switcher
 **/templating/uv_deps_switcher/backups
 desktop.ini
+**/.venv*
+**/.venv_WSL
+
