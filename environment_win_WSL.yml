@@ -22,6 +22,7 @@ dependencies:
   - cython
   - pillow
   - scikit-learn
+  - umap-learn
   - joblib
   - pip:
     - git+https://github.com/cortex-lab/phy.git
