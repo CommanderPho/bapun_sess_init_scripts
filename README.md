@@ -56,6 +56,34 @@ phy template-gui params.py
 
 https://github.com/SpikeInterface/spikeinterface/tree/main/installation_tips
 
+### SpikeInterface env (`uv sync`)
+
+UnitRefine classifiers on HuggingFace were trained with **scikit-learn 1.4.x**. This project pins `scikit-learn>=1.6,<1.7` (closest compatible with `hdbscan`) to reduce `InconsistentVersionWarning` drift versus sklearn 1.7+.
+
+Automated good-unit selection for Phy-sorted data is implemented in [`spikeinterface_pipeline/`](spikeinterface_pipeline/) and used by `notebooks/pho_SpikeInterface_based.ipynb` (`GOOD_UNIT_STRATEGY`, default `sua_relaxed_prob` at probability 0.65).
+
+**Import from notebooks or scripts:**
+
+```python
+from spikeinterface_pipeline import BapunSessionConfig, CurationConfig, run_phy_curation_pipeline
+
+session = BapunSessionConfig(basedir="/path/to/Day1Openfield", basename="RatS-Day1Openfield")
+curation = CurationConfig(strategy="sua_relaxed_prob")
+result = run_phy_curation_pipeline(session, curation)
+```
+
+**CLI (batch / Great Lakes):**
+
+```bash
+uv run si-curate-phy \
+  --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --strategy sua_relaxed_prob \
+  --analyzer-overwrite if_missing
+```
+
+For Great Lakes / older pandas, add `--patch-pandas-compat`. To recreate the analyzer folder each run, use `--analyzer-overwrite always`.
+
 
 # Pho only working on Apogee 2026-05-21
 Got working on Apogee using WSL (would not work natively) and the lab-wiki defined micromamba setup.
