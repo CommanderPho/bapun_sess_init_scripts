@@ -123,6 +123,10 @@ uv run si-run-sorter run \
 uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /home/halechr/FastData/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1_phy
 
 
+
+uv run si-run-sorter run --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield --basename RatS-Day1Openfield --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /home/halechr/FastData/Bapun/RatS/Day1Openfield/SORTING/folder_KS4_v1_phy
+
+
 ```
 
 This writes sorter output under `{basedir}/SORTING/{run-name}` (or `--output-folder` if provided). To resolve paths and settings without running, add `--dry-run`.
@@ -743,6 +747,7 @@ uv run si-run-sorter run \
 
 
 
+
 ```
 
 ```
@@ -756,3 +761,22 @@ dry_run=False
 num_units=98
 num_segments=1
 ```
+
+
+```bash
+
+uv run si-run-sorter run --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield --basename RatS-Day1Openfield --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /home/halechr/FastData/Bapun/RatS/Day1Openfield/SORTING/folder_KS4_v1_phy
+
+
+
+uv run si-run-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1_phy
+
+```
+
+
+```bash
+
+micromamba activate phy2
+phy template-gui /home/halechr/FastData/Bapun/RatS/Day1Openfield/SORTING/folder_KS4_v1_phy/params.py
+
+``
