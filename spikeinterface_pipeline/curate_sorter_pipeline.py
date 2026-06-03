@@ -80,9 +80,9 @@ def run_sorter_curation_pipeline(session: BapunSessionConfig, sorter_curation: S
             review["merge_events"] = len(merge_log)
         review_path = export_curation_review_csv(review, good_units, paths.curation_review_path)
 
-    export_curated_phy_folder(sorting_analyzer, paths, all_labels, good_units, q_labels, strategy=sorter_curation.strategy, n_channels=session.n_channels, sampling_rate=session.dat_file_sampling_rate, n_jobs=sorter_curation.n_jobs, include_mua_in_phy=sorter_curation.include_mua_in_phy, preserve_human_phy_labels=sorter_curation.preserve_human_phy_labels)
     good_units_tsv_path = export_good_units_tsv(good_units, paths.good_units_path)
     export_good_units_json(good_units, paths.good_units_path.with_suffix(".json"))
+    export_curated_phy_folder(sorting_analyzer, paths, all_labels, good_units, q_labels, strategy=sorter_curation.strategy, n_channels=session.n_channels, sampling_rate=session.dat_file_sampling_rate, n_jobs=sorter_curation.n_jobs, include_mua_in_phy=sorter_curation.include_mua_in_phy, preserve_human_phy_labels=sorter_curation.preserve_human_phy_labels, phy_export_overwrite=sorter_curation.phy_export_overwrite)
 
     num_units_final = len(good_units)
     print(f"Units: {num_units_initial} (sorter) -> {refined_sorting.get_num_units()} (after merge/split) -> {num_units_final} good (+ mua in phy if enabled)")

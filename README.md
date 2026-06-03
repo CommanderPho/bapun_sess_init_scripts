@@ -166,6 +166,8 @@ uv run si-curate-sorter run \
   --dry-run
 ```
 
+By default, `si-curate-sorter` skips `export_to_phy` if `{run-name}_phy_curated` already contains a Phy export (`params.py` plus spike export artifacts). Use `--phy-export-overwrite always` to force a full rebuild.
+
 Outputs under `SORTING/`:
 
 - `folder_KS4_v1_phy_curated/` — use with NeuroPy `PhyIO(...)` and Spike3D notebooks
@@ -822,7 +824,7 @@ uv run si-run-sorter run --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfie
 
 
 uv run si-run-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1_phy
-uv run si-curate-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --sorter kilosort4 --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
+uv run si-curate-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
 
 
 ```

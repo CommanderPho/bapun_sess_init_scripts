@@ -47,6 +47,11 @@ neo = { git = "https://github.com/NeuralEnsemble/python-neo.git" }
 probeinterface = { git = "https://github.com/SpikeInterface/probeinterface.git" }
 spikeinterface = { path = "../spikeinterface", editable = true }
 
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]
+
 # [tool.uv.workspace]
 # members = [
 #     "NeuroPy",

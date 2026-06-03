@@ -21,6 +21,7 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--prob-default", type=float, default=0.65)
     run_parser.add_argument("--prob-high", type=float, default=0.8)
     run_parser.add_argument("--analyzer-overwrite", type=str, default="if_missing", choices=["if_missing", "always", "never"])
+    run_parser.add_argument("--phy-export-overwrite", type=str, default="if_missing", choices=["if_missing", "always"], help="if_missing: skip export_to_phy when curated Phy folder already exists; always: rebuild Phy export")
     run_parser.add_argument("--n-jobs", type=int, default=8)
     run_parser.add_argument("--patch-pandas-compat", action="store_true", help="Apply pandas/SI metric formatter patch (Great Lakes)")
     run_parser.add_argument("--dry-run", action="store_true", help="Print resolved paths and pipeline plan without running")
@@ -48,7 +49,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command != "run":
         return 1
     session = BapunSessionConfig(basedir=args.basedir, basename=args.basename, n_channels=args.n_channels, dat_file_sampling_rate=args.dat_sampling_rate, gain_to_uV=args.gain_to_uv)
-    sorter_curation = SorterCurationConfig(run_name=args.run_name, strategy=args.strategy, prob_default=args.prob_default, prob_high=args.prob_high, analyzer_overwrite=args.analyzer_overwrite, n_jobs=args.n_jobs, export_review_csv=not args.skip_review_csv, preserve_human_phy_labels=not args.overwrite_human_phy_labels, apply_auto_merge=not args.skip_auto_merge, merge_preset=args.merge_preset, merge_recursive=args.merge_recursive, apply_bombcell=not args.skip_bombcell, include_mua_in_phy=not args.exclude_mua_from_phy, remove_duplicated_spikes=args.remove_duplicates, remove_redundant_units=args.remove_redundant)
+    sorter_curation = SorterCurationConfig(run_name=args.run_name, strategy=args.strategy, prob_default=args.prob_default, prob_high=args.prob_high, analyzer_overwrite=args.analyzer_overwrite, n_jobs=args.n_jobs, export_review_csv=not args.skip_review_csv, preserve_human_phy_labels=not args.overwrite_human_phy_labels, apply_auto_merge=not args.skip_auto_merge, merge_preset=args.merge_preset, merge_recursive=args.merge_recursive, apply_bombcell=not args.skip_bombcell, include_mua_in_phy=not args.exclude_mua_from_phy, remove_duplicated_spikes=args.remove_duplicates, remove_redundant_units=args.remove_redundant, phy_export_overwrite=args.phy_export_overwrite)
     refinement = RefinementConfig(apply_mahalanobis=not args.skip_mahalanobis, apply_gmm=not args.skip_gmm, mahalanobis_threshold_std=args.mahalanobis_threshold, gmm_n_components=args.gmm_components, min_spikes_for_split=args.min_spikes_for_split, min_outlier_spikes=args.min_outlier_spikes, min_subcluster_spikes=args.min_subcluster_spikes)
     q_config = QLabelConfig()
     result = run_sorter_curation_pipeline(session, sorter_curation, refinement, q_config, patch_pandas_compat=args.patch_pandas_compat, dry_run=args.dry_run)

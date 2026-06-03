@@ -17,9 +17,25 @@ def phy_job_kwargs(n_jobs: int = 8) -> dict:
     return {**PHY_JOB_KWARGS, "n_jobs": n_jobs}
 
 
+def ensure_phy_analyzer_extensions(sorting_analyzer: object, *, n_jobs: int = 8) -> object:
+    job_kwargs = phy_job_kwargs(n_jobs=n_jobs)
+    missing = [ext for ext in PHY_ANALYZER_EXTENSIONS if ext != "template_metrics" and not sorting_analyzer.has_extension(ext)]
+    if missing:
+        sorting_analyzer.compute(missing, **job_kwargs)
+    if not sorting_analyzer.has_extension("template_metrics"):
+        sorting_analyzer.compute("template_metrics", include_multi_channel_metrics=True, **job_kwargs)
+    if hasattr(sorting_analyzer, "save"):
+        sorting_analyzer.save()
+    return sorting_analyzer
+
+
 def _available_metric_names(sorting_analyzer: object) -> set[str]:
-    quality_metrics = sorting_analyzer.get_extension("quality_metrics").get_data()
-    template_metrics = sorting_analyzer.get_extension("template_metrics").get_data()
+    quality_metrics_ext = sorting_analyzer.get_extension("quality_metrics")
+    template_metrics_ext = sorting_analyzer.get_extension("template_metrics")
+    if quality_metrics_ext is None or template_metrics_ext is None:
+        raise RuntimeError("quality_metrics and template_metrics must be computed before reading metric names; call ensure_phy_analyzer_extensions first.")
+    quality_metrics = quality_metrics_ext.get_data()
+    template_metrics = template_metrics_ext.get_data()
     names = set(quality_metrics.keys()) | set(template_metrics.keys())
     for new_name, old_name in METRIC_NAME_ALIASES.items():
         if new_name in names:
@@ -43,7 +59,7 @@ def build_phy_sorting_analyzer(sorting: object, recording_filtered: object, fold
             sorting_analyzer = si.load_sorting_analyzer(folder_path)
     else:
         raise FileNotFoundError(f"SortingAnalyzer folder does not exist: {folder_path}")
-    return sorting_analyzer
+    return ensure_phy_analyzer_extensions(sorting_analyzer, n_jobs=n_jobs)
 
 
 def build_sorter_sorting_analyzer(sorting: object, recording_filtered: object, folder: object, *, analyzer_overwrite: AnalyzerOverwriteMode, n_jobs: int = 8) -> object:

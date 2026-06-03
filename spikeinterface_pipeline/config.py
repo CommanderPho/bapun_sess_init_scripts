@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Literal
 
 AnalyzerOverwriteMode = Literal["if_missing", "always", "never"]
+PhyExportOverwriteMode = Literal["if_missing", "always"]
 GoodUnitStrategy = Literal["phy", "sua", "sua_relaxed_prob", "sua_high_conf", "hybrid_phy_sua", "qm_and_sua"]
 
 DEFAULT_GAIN_TO_UV = 0.19499999284744263
@@ -120,6 +121,7 @@ class SorterCurationConfig:
     include_mua_in_phy: bool = True
     remove_duplicated_spikes: bool = False
     remove_redundant_units: bool = False
+    phy_export_overwrite: PhyExportOverwriteMode = "if_missing"
 
 
 @dataclass
