@@ -879,7 +879,7 @@ ln -sfn "$BASE/spykcirc/${BN}-1.GUI" "$BASE/spyk-circ/$BN/${BN}-merged.GUI"
 
 
 # uv run si-refine-phy --basedir /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel-2020-12-04_07-55-09 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat --analyzer-overwrite if_missing
-uv run si-refine-phy --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel-2020-12-04_07-55-09 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat --analyzer-overwrite if_missing
+uv run si-curate-phy --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel-2020-12-04_07-55-09 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat --analyzer-overwrite if_missing
 
 
 ```
