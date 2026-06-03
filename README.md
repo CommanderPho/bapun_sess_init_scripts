@@ -863,19 +863,24 @@ rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /
 
 
 ```bash
-BASE=/nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel
+# BASE=/nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel
+BASE=/scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel
 BN=RatS-Day5TwoNovel-2020-12-04_07-55-09
 
 mkdir -p "$BASE/spyk-circ/$BN"
 
 # Phy GUI: pipeline expects .../spyk-circ/{BN}/{BN}-merged.GUI
-ln -sfn "$BASE/spykcirc/${BN}-1.GUI" \
-       "$BASE/spyk-circ/$BN/${BN}-merged.GUI"
+ln -sfn "$BASE/spykcirc/${BN}-1.GUI" "$BASE/spyk-circ/$BN/${BN}-merged.GUI"
 
 # Recording + probe: must exist at these paths (symlink if stored elsewhere)
 # Check dat_path in your params.py and point accordingly:
 # ln -sfn <actual_dat> "$BASE/spyk-circ/${BN}.dat"
 # ln -sfn <actual_prb> "$BASE/spyk-circ/${BN}.prb"
+
+
+# uv run si-refine-phy --basedir /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel-2020-12-04_07-55-09 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat --analyzer-overwrite if_missing
+uv run si-refine-phy --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel-2020-12-04_07-55-09 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat --analyzer-overwrite if_missing
+
 
 ```
 
