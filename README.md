@@ -827,6 +827,23 @@ uv run si-run-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfi
 uv run si-curate-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
 
 
+uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
+
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
+
+
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
+uv run si-curate-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
+
+
+cd '/scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/'
+
+phy template-gui /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/spykcirc/RatS-Day5TwoNovel-2020-12-04_07-55-09-1.GUI/params.py
+/nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc/RatS-Day5TwoNovel-2020-12-04_07-55-09-1.GUI/params.py
+
+uv run si-curate-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --run-name RatS-Day5TwoNovel-2020-12-04_07-55-09-1.GUI --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
+
+
 ```
 
 
@@ -835,4 +852,31 @@ uv run si-curate-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Ope
 micromamba activate phy2
 phy template-gui /home/halechr/FastData/Bapun/RatS/Day1Openfield/SORTING/folder_KS4_v1_phy/params.py
 
-``
+
+
+
+/nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc
+
+rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc /tmpssd/halechr/Day5TwoNovel
+rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/spykcirc
+```
+
+
+```bash
+BASE=/nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel
+BN=RatS-Day5TwoNovel-2020-12-04_07-55-09
+
+mkdir -p "$BASE/spyk-circ/$BN"
+
+# Phy GUI: pipeline expects .../spyk-circ/{BN}/{BN}-merged.GUI
+ln -sfn "$BASE/spykcirc/${BN}-1.GUI" \
+       "$BASE/spyk-circ/$BN/${BN}-merged.GUI"
+
+# Recording + probe: must exist at these paths (symlink if stored elsewhere)
+# Check dat_path in your params.py and point accordingly:
+# ln -sfn <actual_dat> "$BASE/spyk-circ/${BN}.dat"
+# ln -sfn <actual_prb> "$BASE/spyk-circ/${BN}.prb"
+
+```
+
+
