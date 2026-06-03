@@ -100,3 +100,43 @@ class SortingResult:
     phy_export_folder: Path | None = None
     analyzer_folder: Path | None = None
     sorting: object | None = None
+
+
+@dataclass
+class SorterCurationConfig:
+    run_name: str
+    strategy: GoodUnitStrategy = "sua_relaxed_prob"
+    prob_default: float = 0.65
+    prob_high: float = 0.8
+    analyzer_overwrite: AnalyzerOverwriteMode = "if_missing"
+    n_jobs: int = 8
+    qm_thresholds: dict = field(default_factory=lambda: dict(DEFAULT_QM_THRESHOLDS))
+    export_review_csv: bool = True
+    preserve_human_phy_labels: bool = True
+    apply_auto_merge: bool = True
+    merge_preset: str = "similarity_correlograms"
+    merge_recursive: bool = False
+    apply_bombcell: bool = True
+    include_mua_in_phy: bool = True
+    remove_duplicated_spikes: bool = False
+    remove_redundant_units: bool = False
+
+
+@dataclass
+class SorterCurationResult:
+    sorting: object
+    sorting_analyzer: object
+    analyzer_neural: object
+    all_labels: object
+    comparison: object
+    good_units: object
+    sorting_curated: object
+    paths: object
+    q_labels: object
+    merge_log: list[dict[str, object]]
+    split_log: list[dict[str, object]]
+    curation_review_path: Path | None = None
+    phy_curated_folder: Path | None = None
+    good_units_path: Path | None = None
+    num_units_initial: int = 0
+    num_units_final: int = 0

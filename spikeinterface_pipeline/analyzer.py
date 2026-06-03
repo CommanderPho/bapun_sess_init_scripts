@@ -6,6 +6,7 @@ import spikeinterface.full as si
 from spikeinterface_pipeline.config import AnalyzerOverwriteMode, PHY_JOB_KWARGS
 
 PHY_ANALYZER_EXTENSIONS = ["noise_levels", "random_spikes", "waveforms", "templates", "spike_locations", "spike_amplitudes", "correlograms", "principal_components", "quality_metrics", "template_metrics"]
+SORTER_ANALYZER_EXTRA_EXTENSIONS = ["unit_locations", "template_similarity", "isi_histograms"]
 METRIC_NAME_ALIASES = {"peak_to_trough_duration": "peak_to_valley", "trough_half_width": "half_width", "peak_after_to_trough_ratio": "peak_trough_ratio"}
 LEGACY_TO_TEMPLATE_METRIC = {"peak_trough_ratio": "peak_after_to_trough_ratio", "half_width": "trough_half_width", "peak_to_valley": "peak_to_trough_duration"}
 NOISE_NEURAL_MODEL = "SpikeInterface/UnitRefine_noise_neural_classifier"
@@ -43,6 +44,22 @@ def build_phy_sorting_analyzer(sorting: object, recording_filtered: object, fold
     else:
         raise FileNotFoundError(f"SortingAnalyzer folder does not exist: {folder_path}")
     return sorting_analyzer
+
+
+def build_sorter_sorting_analyzer(sorting: object, recording_filtered: object, folder: object, *, analyzer_overwrite: AnalyzerOverwriteMode, n_jobs: int = 8) -> object:
+    sorting_analyzer = build_phy_sorting_analyzer(sorting, recording_filtered, folder, analyzer_overwrite=analyzer_overwrite, n_jobs=n_jobs)
+    return ensure_sorter_analyzer_extensions(sorting_analyzer, n_jobs=n_jobs)
+
+
+def ensure_sorter_analyzer_extensions(sorting_analyzer: object, *, n_jobs: int = 8) -> object:
+    job_kwargs = phy_job_kwargs(n_jobs=n_jobs)
+    if not sorting_analyzer.has_extension("unit_locations"):
+        sorting_analyzer.compute("unit_locations", method="monopolar_triangulation", **job_kwargs)
+    if not sorting_analyzer.has_extension("template_similarity"):
+        sorting_analyzer.compute("template_similarity", **job_kwargs)
+    if not sorting_analyzer.has_extension("isi_histograms"):
+        sorting_analyzer.compute("isi_histograms")
+    return ensure_unitrefine_metrics(sorting_analyzer, n_jobs=n_jobs)
 
 
 def ensure_unitrefine_metrics(sorting_analyzer: object, *, n_jobs: int = 8) -> object:

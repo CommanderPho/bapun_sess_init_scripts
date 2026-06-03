@@ -30,6 +30,7 @@ dependencies = [
 
 [project.scripts]
 si-curate-phy = "spikeinterface_pipeline.cli:main"
+si-curate-sorter = "spikeinterface_pipeline.cli_curate_sorter:main"
 si-refine-phy = "spikeinterface_pipeline.cli_refine:main"
 si-run-sorter = "spikeinterface_pipeline.cli_sort:main"
 

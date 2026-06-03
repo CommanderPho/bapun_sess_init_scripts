@@ -1,8 +1,15 @@
 from __future__ import annotations
 
 import spikeinterface.extractors as se
+import spikeinterface.full as si
 
-from spikeinterface_pipeline.paths import SessionPaths
+from spikeinterface_pipeline.paths import SessionPaths, SortingSessionPaths
+
+
+def load_sorter_folder(paths: SortingSessionPaths) -> object:
+    if not paths.sorter_output_folder.exists():
+        raise FileNotFoundError(f"sorter_output_folder does not exist: {paths.sorter_output_folder}")
+    return si.read_sorter_folder(paths.sorter_output_folder)
 
 
 def load_phy_sorting(paths: SessionPaths) -> object:

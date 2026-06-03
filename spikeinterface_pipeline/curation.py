@@ -19,9 +19,16 @@ def run_unitrefine_two_stage(sorting_analyzer: object) -> tuple[pd.DataFrame, ob
     return all_labels, analyzer_neural, noise_neural_labels
 
 
+def _sorting_quality_series(sorting: object) -> pd.Series:
+    quality = sorting.get_property("quality")
+    if quality is None:
+        return pd.Series("", index=sorting.unit_ids, dtype=object)
+    return pd.Series(quality, index=sorting.unit_ids)
+
+
 def build_comparison_df(sorting: object, all_labels: pd.DataFrame) -> pd.DataFrame:
     comparison = all_labels.copy()
-    comparison["phy_label"] = sorting.get_property("quality")
+    comparison["phy_label"] = all_labels.index.map(_sorting_quality_series(sorting))
     comparison["agreement"] = comparison["prediction"] == comparison["phy_label"]
     return comparison
 
@@ -32,7 +39,8 @@ def compute_qm_labels(sorting_analyzer: object, qm_thresholds: dict) -> pd.DataF
 
 
 def select_good_units(sorting: object, all_labels: pd.DataFrame, *, strategy: GoodUnitStrategy, prob_default: float = 0.65, prob_high: float = 0.8, qm_labels: pd.DataFrame | None = None) -> pd.Index:
-    phy_good_ids = sorting.unit_ids[sorting.get_property("quality") == "good"]
+    quality = sorting.get_property("quality")
+    phy_good_ids = sorting.unit_ids[quality == "good"] if quality is not None else sorting.unit_ids[[]]
     if strategy == "phy":
         good_units = pd.Index(phy_good_ids)
     elif strategy == "sua":
@@ -42,7 +50,7 @@ def select_good_units(sorting: object, all_labels: pd.DataFrame, *, strategy: Go
     elif strategy == "sua_high_conf":
         good_units = all_labels.index[(all_labels["prediction"] == "sua") & (all_labels["probability"] > prob_high)]
     elif strategy == "hybrid_phy_sua":
-        is_phy_good = pd.Series(sorting.get_property("quality") == "good", index=sorting.unit_ids)
+        is_phy_good = _sorting_quality_series(sorting) == "good"
         good_units = all_labels.index[(all_labels["prediction"] == "sua") | is_phy_good.reindex(all_labels.index, fill_value=False)]
         good_units = good_units.unique()
     elif strategy == "qm_and_sua":

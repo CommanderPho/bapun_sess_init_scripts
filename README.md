@@ -145,6 +145,41 @@ uv run si-run-sorter run \
 
 The exported folder is separate from legacy `spyk-circ/*-merged.GUI` outputs used by `si-curate-phy` / `si-refine-phy`.
 
+**Post-sorter automated curation (merge, split, UnitRefine, Bombcell → NeuroPy-ready Phy):**
+
+Runs after `si-run-sorter` on `{basedir}/SORTING/{run-name}`. Writes curated Phy to `{run-name}_phy_curated` (raw `{run-name}_phy` is unchanged).
+
+```bash
+uv run si-curate-sorter run \
+  --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --run-name folder_KS4_v1 \
+  --strategy sua_relaxed_prob \
+  --n-jobs 9 \
+  --patch-pandas-compat
+
+# Resolve paths only (no compute):
+uv run si-curate-sorter run \
+  --basedir /home/halechr/FastData/Bapun/RatS/Day1Openfield \
+  --basename RatS-Day1Openfield \
+  --run-name folder_KS4_v1 \
+  --dry-run
+```
+
+Outputs under `SORTING/`:
+
+- `folder_KS4_v1_phy_curated/` — use with NeuroPy `PhyIO(...)` and Spike3D notebooks
+- `folder_KS4_v1_curation_review.csv` — per-unit labels, metrics, split/merge summary
+- `folder_KS4_v1_good_units.tsv` / `.json` — final good unit IDs
+
+```python
+from pathlib import Path
+from neuropy.io.phyio import PhyIO
+
+phy_path = Path("/path/to/Day1Openfield/SORTING/folder_KS4_v1_phy_curated")
+phy_data = PhyIO(phy_path)
+```
+
 **SpikeInterface-GUI (optional interactive viewer):** `spikeinterface-gui` is installed with `uv sync`. After running the curation pipeline in `notebooks/pho_SpikeInterface_based.ipynb`, set `LAUNCH_SPIKEINTERFACE_GUI = True` in the final optional cell to open the desktop viewer. CLI alternative:
 
 ```bash
@@ -747,6 +782,23 @@ uv run si-run-sorter run \
 
 
 
+
+
+
+
+
+
+
+
+uv run si-run-sorter run \
+  --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield \
+  --basename RatS-Day4Openfield \
+  --sorter kilosort4 \
+  --run-name folder_KS4_v1
+  --export-phy \
+  --phy-export-folder /nfs/turbo/umms-kdiba/Bapun/RatS/Day1Openfield/SORTING/folder_SC2_phy \
+  --n-jobs 9 \
+  --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
 
 ```
 
