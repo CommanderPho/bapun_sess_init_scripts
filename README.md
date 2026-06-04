@@ -878,7 +878,6 @@ RatS-Day5TwoNovel-2020-12-04_07-55-09.dat
 
 rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc /tmpssd/halechr/Day5TwoNovel
 rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/spykcirc
-
 rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel
 
 
@@ -919,6 +918,20 @@ uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapu
 
 phy template-gui 
 ```
+
+
+# Greatlakes Scratch Drive
+
+/scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/
+
+
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel \
+--sorter spykingcircus2 \
+--run-name folder_SC2 \
+--export-phy \
+--phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_SC2_phy \
+--n-jobs 9 \
+--sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
 
 
 
