@@ -827,6 +827,8 @@ uv run si-run-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfi
 uv run si-curate-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Openfield --basename RatS-Day4Openfield --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
 
 
+# uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
+
 uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
 
 uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
@@ -853,12 +855,35 @@ micromamba activate phy2
 phy template-gui /home/halechr/FastData/Bapun/RatS/Day1Openfield/SORTING/folder_KS4_v1_phy/params.py
 
 
+micromamba activate phy2
+phy template-gui /home/halechr/FastData/Bapun/RatS/Day4Openfield/spyk-circ/RatS-Day4Openfield/RatS-Day4Openfield-merged.GUI/params.py
+
+
+
+
+# micromamba activate phy2
+# phy template-gui /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/spyk-circ/RatS-Day4Openfield/RatS-Day4Openfield-merged.GUI/params.py ## NOPERS
+
+
+micromamba activate phy2
+phy template-gui /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day4Openfield/spyk-circ/RatS-Day4Openfield/RatS-Day4Openfield-merged.GUI/params.py
+
+
+
+
+RatS-Day5TwoNovel-2020-12-04_07-55-09.dat
 
 
 /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc
 
 rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc /tmpssd/halechr/Day5TwoNovel
 rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spykcirc /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/spykcirc
+
+rsync -a -W --no-compress --info=progress2 --exclude='*_BAK*' --exclude='*bak' /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel
+
+
+RatS-Day5TwoNovel.dat
+/nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/spyk-circ/RatS-Day5TwoNovel.dat
 ```
 
 
@@ -882,6 +907,16 @@ ln -sfn "$BASE/spykcirc/${BN}-1.GUI" "$BASE/spyk-circ/$BN/${BN}-merged.GUI"
 uv run si-curate-phy --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel-2020-12-04_07-55-09 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat --analyzer-overwrite if_missing
 
 
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel \
+--sorter spykingcircus2 \
+--run-name folder_SC2 \
+--export-phy \
+--phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_SC2_phy \
+--n-jobs 9 \
+--sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
+
+
+phy template-gui 
 ```
 
 
