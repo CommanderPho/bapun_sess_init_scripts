@@ -831,11 +831,11 @@ uv run si-curate-sorter run --basedir /media/halechr/MAX/Data/Bapun/RatS/Day4Ope
 
 uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
 
-uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy --remove-existing-folder
 
 
 uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
-uv run si-curate-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
+uv run si-curate-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 4 --patch-pandas-compat
 
 
 cd '/scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/'
@@ -934,6 +934,24 @@ uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapu
 --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
 
 
+
+## Greatlakes other:
+ln -s /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/RatS-Day4Openfield.dat /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1/sorter_output/recording.dat
+
+
+
+ln -s /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/spyk-circ/RatS-Day4Openfield.dat /nfs/turbo/umms-kdiba/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1/sorter_output/recording.dat
+
+
+
+
+
+chmod a-w RatS-Day4Openfield.dat
+
+
+
+
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
 
 
 # 2026-06-04 - 11:23pm - Lab Workstation Day5 
