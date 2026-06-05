@@ -10,25 +10,27 @@ from spikeinterface_pipeline.config import BapunSessionConfig, NeuronLoadConfig,
 from spikeinterface_pipeline.paths import resolve_session_paths, resolve_sorting_paths
 
 NeuronSourceTypeResolved = Literal["spyk_circ", "sorting"]
+PhyFolderKind = Literal["invalid", "si_phy_export", "spyk_circ_phy_export"]
+_PHY_REQUIRED_FILES = ("params.py", "spike_times.npy", "spike_clusters.npy", "cluster_info.tsv")
+
+
+def inspect_phy_folder(phy_folder: Path) -> PhyFolderKind:
+    if not phy_folder.is_dir():
+        return "invalid"
+    for filename in _PHY_REQUIRED_FILES:
+        if not (phy_folder / filename).is_file():
+            return "invalid"
+    if (phy_folder / "cluster_si_unit_ids.tsv").is_file():
+        return "si_phy_export"
+    return "spyk_circ_phy_export"
 
 
 def detect_neuron_source_type(phy_folder: Path, curation_review_path: Path | None = None) -> NeuronSourceTypeResolved:
     if curation_review_path is not None and curation_review_path.is_file():
         return "sorting"
-    phy_name = phy_folder.name
-    if phy_name.endswith("-merged.GUI") or phy_name.endswith(".GUI"):
-        return "spyk_circ"
-    if "_phy_curated" in phy_name or phy_folder.parent.name == "SORTING":
-        return "sorting"
+    if inspect_phy_folder(phy_folder) == "invalid":
+        raise FileNotFoundError(f"phy_folder is not a valid Phy export: {phy_folder}")
     return "spyk_circ"
-
-
-def _infer_curation_review_path(phy_folder: Path) -> Path | None:
-    if "_phy_curated" not in phy_folder.name:
-        return None
-    run_name = phy_folder.name.replace("_phy_curated", "")
-    review_path = phy_folder.parent.joinpath(f"{run_name}_curation_review.csv")
-    return review_path if review_path.is_file() else None
 
 
 def resolve_neuron_load_paths(config: NeuronLoadConfig, basedir: Path, basename: str) -> tuple[Path, Path | None, NeuronSourceTypeResolved]:
@@ -37,6 +39,8 @@ def resolve_neuron_load_paths(config: NeuronLoadConfig, basedir: Path, basename:
         sorting_paths = resolve_sorting_paths(session_config, config.run_name)
         phy_folder = config.phy_folder.resolve() if config.phy_folder is not None else sorting_paths.phy_curated_folder
         curation_review_path = config.curation_review_path.resolve() if config.curation_review_path is not None else sorting_paths.curation_review_path
+        if not curation_review_path.is_file():
+            raise FileNotFoundError(f"sorting neuron source requires curation_review_path; phy_folder={phy_folder}")
         return phy_folder, curation_review_path, "sorting"
     phy_folder = config.phy_folder
     curation_review_path = config.curation_review_path
@@ -47,23 +51,16 @@ def resolve_neuron_load_paths(config: NeuronLoadConfig, basedir: Path, basename:
         phy_folder = phy_folder.resolve()
     if curation_review_path is not None:
         curation_review_path = curation_review_path.resolve()
-    elif config.source_type != "spyk_circ":
-        curation_review_path = _infer_curation_review_path(phy_folder)
     if config.source_type == "sorting":
         if curation_review_path is None or not curation_review_path.is_file():
             raise FileNotFoundError(f"sorting neuron source requires curation_review_path; phy_folder={phy_folder}")
         return phy_folder, curation_review_path, "sorting"
     if config.source_type == "spyk_circ":
+        if inspect_phy_folder(phy_folder) == "invalid":
+            raise FileNotFoundError(f"phy_folder is not a valid Phy export: {phy_folder}")
         return phy_folder, None, "spyk_circ"
     source_type = detect_neuron_source_type(phy_folder, curation_review_path)
-    if source_type == "sorting" and curation_review_path is None:
-        curation_review_path = _infer_curation_review_path(phy_folder)
-    if source_type == "sorting" and (curation_review_path is None or not curation_review_path.is_file()):
-        session_paths = resolve_session_paths(session_config)
-        if session_paths.phy_gui_dir.is_dir():
-            return session_paths.phy_gui_dir, None, "spyk_circ"
-        raise FileNotFoundError(f"Could not resolve sorting curation review CSV for phy_folder={phy_folder}")
-    return phy_folder, curation_review_path, source_type
+    return phy_folder, curation_review_path if source_type == "sorting" else None, source_type
 
 
 def _read_phy_params(phy_folder: Path) -> dict[str, str]:
@@ -79,11 +76,12 @@ def load_neurons_from_spyk_circ_phy(phy_folder: Path, *, t_stop: float, include_
     from neuropy.core import Neurons
     from neuropy.io import PhyIO
 
-    if not phy_folder.is_dir():
-        raise FileNotFoundError(f"phy_folder does not exist: {phy_folder}")
+    if inspect_phy_folder(phy_folder) == "invalid":
+        raise FileNotFoundError(f"phy_folder is not a valid Phy export: {phy_folder}")
     phy_data = PhyIO(phy_folder, include_groups=include_groups)
     if phy_data.spiketrains is None or len(phy_data.spiketrains) == 0:
         raise ValueError(f"no spiketrains found in Phy output at {phy_folder}")
+    neuron_ids = phy_data.cluster_info["si_unit_id"].astype(int).values if "si_unit_id" in phy_data.cluster_info.columns else None
     return Neurons(
         np.array(phy_data.spiketrains, dtype=object),
         t_stop=t_stop,
@@ -91,14 +89,15 @@ def load_neurons_from_spyk_circ_phy(phy_folder: Path, *, t_stop: float, include_
         peak_channels=phy_data.peak_channels,
         waveforms=np.array(phy_data.peak_waveforms, dtype="object"),
         shank_ids=np.array([int(v) for v in phy_data.shank_ids]),
+        neuron_ids=neuron_ids,
     )
 
 
 def load_neurons_from_sorting_phy(phy_folder: Path, curation_review_path: Path, *, t_stop: float, unit_filter: str) -> object:
     from neuropy.core import Neurons
 
-    if not phy_folder.is_dir():
-        raise FileNotFoundError(f"phy_folder does not exist: {phy_folder}")
+    if inspect_phy_folder(phy_folder) == "invalid":
+        raise FileNotFoundError(f"phy_folder is not a valid Phy export: {phy_folder}")
     if not curation_review_path.is_file():
         raise FileNotFoundError(f"curation_review_path does not exist: {curation_review_path}")
     review = pd.read_csv(curation_review_path, index_col=0)
@@ -150,8 +149,10 @@ def load_neurons_from_sorting_phy(phy_folder: Path, curation_review_path: Path, 
 def build_neurons_for_session(sess: object, basedir: Path, config: NeuronLoadConfig | None = None) -> object | None:
     config = config or NeuronLoadConfig()
     basename = getattr(sess, "name", None) or getattr(getattr(sess, "config", None), "session_name", None)
+    if basename is None and config.phy_folder is None and config.run_name is None:
+        raise ValueError("sess must have .name or .config.session_name when phy_folder and run_name are not set")
     if basename is None:
-        raise ValueError("sess must have .name or .config.session_name to resolve neuron load paths")
+        basename = "session"
     if sess.eegfile is None:
         print("WARNING: build_neurons_for_session: sess.eegfile is None; cannot determine t_stop for Neurons")
         return None
@@ -168,8 +169,9 @@ def build_neurons_for_session(sess: object, basedir: Path, config: NeuronLoadCon
             neurons = load_neurons_from_sorting_phy(phy_folder, curation_review_path, t_stop=t_stop, unit_filter=config.unit_filter)
             print(f"Loaded {neurons.n_neurons} neurons from sorting phy ({phy_folder.name}) using filter {config.unit_filter!r}")
         else:
+            folder_kind = inspect_phy_folder(phy_folder)
             neurons = load_neurons_from_spyk_circ_phy(phy_folder, t_stop=t_stop, include_groups=config.include_groups)
-            print(f"Loaded {neurons.n_neurons} neurons from spyk-circ phy ({phy_folder.name}) groups={config.include_groups}")
+            print(f"Loaded {neurons.n_neurons} neurons from phy export ({phy_folder.name}, kind={folder_kind}) groups={config.include_groups}")
     except (FileNotFoundError, ValueError) as exc:
         print(f"WARNING: build_neurons_for_session: failed to load neurons from {phy_folder}: {exc}")
         return None
