@@ -25,10 +25,10 @@ dependencies = [
     "cupy-cuda12x>=13.6.0,<14",
     # UnitRefine models trained on sklearn 1.4.x; hdbscan requires >=1.6 — pin <1.7 to avoid 1.7+ pickle drift.
     "scikit-learn>=1.6",
-    # "scikit-learn>=1.6,<1.7",
+    "scikit-learn>=1.6,<1.7",
     "nvidia-ml-py>=13.610.43",
     "bombcell",
-    "unitrefine",
+    # "unitrefine",
 ]
 
 [project.scripts]
@@ -50,7 +50,7 @@ neo = { git = "https://github.com/NeuralEnsemble/python-neo.git" }
 probeinterface = { git = "https://github.com/SpikeInterface/probeinterface.git" }
 spikeinterface = { path = "../spikeinterface", editable = true }
 bombcell = { path = "../bombcell/py_bombcell", editable = true }
-unitrefine = { path = "../UnitRefine", editable = true }
+# unitrefine = { path = "../UnitRefine", editable = true }
 
 [dependency-groups]
 dev = [
