@@ -1,6 +1,7 @@
 from spikeinterface_pipeline.analyzer import build_phy_sorting_analyzer, build_sorter_sorting_analyzer, ensure_sorter_analyzer_extensions, ensure_unitrefine_metrics, phy_job_kwargs
 from spikeinterface_pipeline.compat import patch_spikeinterface_metric_formatters
-from spikeinterface_pipeline.config import BapunSessionConfig, CurationConfig, PhyCurationResult, QLabelConfig, RefinementConfig, SortingConfig, SortingResult, SorterCurationConfig, SorterCurationResult
+from spikeinterface_pipeline.config import BapunSessionConfig, CurationConfig, NeuronLoadConfig, NeuronSourceType, PhyCurationResult, QLabelConfig, RefinementConfig, SortingConfig, SortingResult, SorterCurationConfig, SorterCurationResult
+from spikeinterface_pipeline.neuron_loading import build_neurons_for_session, detect_neuron_source_type, load_neurons_from_sorting_phy, load_neurons_from_spyk_circ_phy, resolve_neuron_load_paths
 from spikeinterface_pipeline.curation import apply_auto_quality_property, build_comparison_df, compute_qm_labels, curate_sorting, resolve_good_units, run_unitrefine_two_stage, select_good_units
 from spikeinterface_pipeline.curate_sorter_pipeline import run_sorter_curation_pipeline
 from spikeinterface_pipeline.paths import SessionPaths, SortingSessionPaths, resolve_session_paths, resolve_sorting_paths
@@ -14,6 +15,8 @@ from spikeinterface_pipeline.sorting_io import load_phy_sorting, load_sorter_fol
 __all__ = [
     "BapunSessionConfig",
     "CurationConfig",
+    "NeuronLoadConfig",
+    "NeuronSourceType",
     "QLabelConfig",
     "RefinementConfig",
     "PhyCurationResult",
@@ -25,21 +28,26 @@ __all__ = [
     "SortingSessionPaths",
     "apply_auto_quality_property",
     "build_comparison_df",
+    "build_neurons_for_session",
     "build_phy_sorting_analyzer",
     "build_sorter_sorting_analyzer",
     "ensure_sorter_analyzer_extensions",
     "compute_qm_labels",
     "curate_sorting",
+    "detect_neuron_source_type",
     "ensure_unitrefine_metrics",
     "export_curation_review_csv",
     "export_curated_phy_folder",
     "load_bapun_recording",
+    "load_neurons_from_sorting_phy",
+    "load_neurons_from_spyk_circ_phy",
     "load_phy_sorting",
     "load_sorter_folder",
     "load_spykingcircus_sorting",
     "patch_spikeinterface_metric_formatters",
     "phy_job_kwargs",
     "resolve_good_units",
+    "resolve_neuron_load_paths",
     "resolve_session_paths",
     "resolve_sorting_paths",
     "run_bapun_sorter",

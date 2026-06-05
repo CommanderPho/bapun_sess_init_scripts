@@ -7,6 +7,7 @@ from typing import Literal
 AnalyzerOverwriteMode = Literal["if_missing", "always", "never"]
 PhyExportOverwriteMode = Literal["if_missing", "always"]
 GoodUnitStrategy = Literal["phy", "sua", "sua_relaxed_prob", "sua_high_conf", "hybrid_phy_sua", "qm_and_sua"]
+NeuronSourceType = Literal["spyk_circ", "sorting", "auto"]
 
 DEFAULT_GAIN_TO_UV = 0.19499999284744263
 DEFAULT_QM_THRESHOLDS = {"snr": {"greater": 5}, "firing_rate": {"greater": 0.1, "less": 200}, "isi_violations_ratio": {"less": 0.5}}
@@ -122,6 +123,18 @@ class SorterCurationConfig:
     remove_duplicated_spikes: bool = False
     remove_redundant_units: bool = False
     phy_export_overwrite: PhyExportOverwriteMode = "if_missing"
+
+
+@dataclass
+class NeuronLoadConfig:
+    source_type: NeuronSourceType = "auto"
+    phy_folder: Path | None = None
+    curation_review_path: Path | None = None
+    run_name: str | None = None
+    include_groups: tuple[str, ...] = ("good", "mua")
+    unit_filter: str = 'prediction == "sua"'
+    save_neurons: bool = True
+    estimate_neuron_type: bool = True
 
 
 @dataclass
