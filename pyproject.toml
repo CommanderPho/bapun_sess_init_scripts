@@ -3,7 +3,7 @@ name = "bapun_sess_init_scripts"
 version = "0.3.5"
 description = "Helpers for initializing a brand new, un-spike-sorted session from raw data. By Pho Hale 2026-05."
 readme = "README.md"
-requires-python = ">=3.10,<3.12"
+requires-python = ">=3.11,<3.12"
 dependencies = [
     "ipykernel",
     "ipython",
@@ -24,8 +24,11 @@ dependencies = [
     "bokeh>=3.9.0",
     "cupy-cuda12x>=13.6.0,<14",
     # UnitRefine models trained on sklearn 1.4.x; hdbscan requires >=1.6 — pin <1.7 to avoid 1.7+ pickle drift.
-    "scikit-learn>=1.6,<1.7",
+    "scikit-learn>=1.6",
+    # "scikit-learn>=1.6,<1.7",
     "nvidia-ml-py>=13.610.43",
+    "bombcell",
+    "unitrefine",
 ]
 
 [project.scripts]
@@ -46,6 +49,8 @@ neuropy = { path = "../NeuroPy", editable = true }
 neo = { git = "https://github.com/NeuralEnsemble/python-neo.git" }
 probeinterface = { git = "https://github.com/SpikeInterface/probeinterface.git" }
 spikeinterface = { path = "../spikeinterface", editable = true }
+bombcell = { path = "../bombcell/py_bombcell", editable = true }
+unitrefine = { path = "../UnitRefine", editable = true }
 
 [dependency-groups]
 dev = [
