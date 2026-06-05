@@ -889,7 +889,8 @@ RatS-Day5TwoNovel.dat
 
 ```bash
 # BASE=/nfs/turbo/umms-kdiba/Bapun/RatS/Day5TwoNovel
-BASE=/scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel
+# BASE=/scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel
+BASE=/media/halechr/BETAMAX1/Data/Bapun/RatS/Day5TwoNovel
 BN=RatS-Day5TwoNovel-2020-12-04_07-55-09
 
 mkdir -p "$BASE/spyk-circ/$BN"
@@ -920,3 +921,24 @@ phy template-gui
 ```
 
 
+
+
+# 2026-06-04 - 11:23pm - Lab Workstation Day5 
+
+```bash
+
+uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy
+
+
+uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel \
+--sorter spykingcircus2 \
+--run-name folder_SC2 \
+--export-phy \
+--phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_SC2_phy \
+--n-jobs 9 \
+--sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
+
+uv run si-curate-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
+
+
+```
