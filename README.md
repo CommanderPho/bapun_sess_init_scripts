@@ -966,10 +966,36 @@ uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatS/Day5T
 --run-name folder_SC2 \
 --export-phy \
 --phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_SC2_phy \
+--n-jobs 7
+
+uv run si-curate-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
+
+
+```
+
+
+## 2026-06-09 - Rat J - Lab Workstation
+
+```bash
+
+uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield --basename RatJ-Day4Openfield \
+--sorter kilosort4 \
+--run-name folder_KS4_v1 \
+--export-phy \
+--phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield/SORTING/folder_KS4_v1_phy \
+--n-jobs 7
+
+
+
+uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield --basename RatJ-Day4Openfield \
+--sorter spykingcircus2 \
+--run-name folder_SC2 \
+--export-phy \
+--phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield/SORTING/folder_SC2_phy \
 --n-jobs 9 \
 --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
 
-uv run si-curate-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
+uv run si-curate-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield --basename RatJ-Day4Openfield --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
 
 
 ```
