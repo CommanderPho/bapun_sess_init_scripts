@@ -1027,3 +1027,9 @@ uv run si-run-sorter run --basedir /dev/shm/halechr/Day5TwoNovel --basename RatS
 It looks like the sessions are there in `/nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield/SORTING/`
 
 [text](../../../Data/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1_sorting_analyzer)
+
+
+uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatU/Day3TwoNovel --basename RatU-Day3TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Data/Bapun/RatU/Day3TwoNovel --n-jobs 11 --sorter-params-json '{"job_kwargs": {"n_jobs": 11, "max_threads_per_worker": 1}}' --n-channels 192
+
+
+
