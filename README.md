@@ -1002,3 +1002,16 @@ uv run si-curate-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Da
 
 
 ```
+
+
+```
+
+uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day3TwoNovel --basename RatJ-Day3TwoNovel \
+--sorter kilosort4 \
+--run-name folder_KS4_v1 \
+--export-phy \
+--phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day3TwoNovel/SORTING/folder_KS4_v1_phy \
+--n-jobs 9 \
+--n-channels 67
+
+```
