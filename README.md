@@ -1021,7 +1021,7 @@ uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day3T
 
 # Day5TwoNovel progress
 ## 2026-06-05 5:41am - ran on `/dev/shm/halechr/Day5TwoNovel`
-uv run si-run-sorter run --basedir /dev/shm/halechr/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter spykingcircus2 --run-name folder_SC2 --export-phy --phy-export-folder /dev/shm/halechr/Day5TwoNovel/SORTING/folder_SC2_phy --n-jobs 11 --sorter-params-json '{"job_kwargs": {"n_jobs": 11, "max_threads_per_worker": 1}}'
+uv run si-run-sorter run --basedir /dev/shm/halechr/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter spykingcircus2 --run-name folder_SC2 --export-phy --phy-export-folder /dev/shm/halechr/Day5TwoNovel/SORTING/folder_SC2_phy --n-jobs 11 --sorter-params-json '{"job_kwargs": {"n_jobs": 11}}'
 
 # Day4Openfield progress:
 It looks like the sessions are there in `/nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield/SORTING/`
@@ -1033,10 +1033,19 @@ It looks like the sessions are there in `/nfs/turbo/umms-kdiba/Data/Bapun/RatS/D
 
 uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy --n-jobs 4 --n-channels 195
 
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_KS4_v1_phy --n-jobs 11 --n-channels 195
+
+uv run si-run-sorter run --basedir /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter spykingcircus2 --run-name folder_SC2 --export-phy --phy-export-folder /scratch/kdiba_root/kdiba99/halechr/Data/Bapun/RatS/Day5TwoNovel/SORTING/folder_SC2_phy --n-jobs 11 --sorter-params-json '{"job_kwargs": {"n_jobs": 11}}'
+
+
 
 ## RatU-Day3TwoNovel is already sorted actually
 # uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatU/Day3TwoNovel --basename RatU-Day3TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Data/Bapun/RatU/Day3TwoNovel/SORTING/folder_KS4_v1_phy --n-jobs 4 --n-channels 192
 
  --sorter-params-json '{"job_kwargs": {"n_jobs": 4, "max_threads_per_worker": 1}}'
+
+uv run si-run-sorter run --basedir /nfs/turbo/umms-kdiba/Data/Bapun/RatU/Day3TwoNovel --basename RatU-Day3TwoNovel --sorter kilosort4 --run-name folder_KS4_v1 --export-phy --phy-export-folder /nfs/turbo/umms-kdiba/Data/Bapun/RatU/Day3TwoNovel/SORTING/folder_KS4_v1_phy --n-jobs 7 --n-channels 192
+
+
 
 
