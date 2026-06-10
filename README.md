@@ -983,7 +983,9 @@ uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4O
 --run-name folder_KS4_v1 \
 --export-phy \
 --phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield/SORTING/folder_KS4_v1_phy \
---n-jobs 7
+--n-jobs 9 \
+--n-channels 67
+
 
 
 
@@ -993,6 +995,7 @@ uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4O
 --export-phy \
 --phy-export-folder /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield/SORTING/folder_SC2_phy \
 --n-jobs 9 \
+--n-channels 67 \
 --sorter-params-json '{"job_kwargs": {"n_jobs": 9, "max_threads_per_worker": 1}}'
 
 uv run si-curate-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day4Openfield --basename RatJ-Day4Openfield --run-name folder_KS4_v1 --strategy sua_relaxed_prob --n-jobs 9 --patch-pandas-compat
