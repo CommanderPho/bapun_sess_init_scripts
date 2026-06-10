@@ -1015,3 +1015,15 @@ uv run si-run-sorter run --basedir /media/halechr/BETAMAX1/Data/Bapun/RatJ/Day3T
 --n-channels 67
 
 ```
+
+
+# 2026-06-05 - 5:52am - Greatlakes again
+
+# Day5TwoNovel progress
+## 2026-06-05 5:41am - ran on `/dev/shm/halechr/Day5TwoNovel`
+uv run si-run-sorter run --basedir /dev/shm/halechr/Day5TwoNovel --basename RatS-Day5TwoNovel --sorter spykingcircus2 --run-name folder_SC2 --export-phy --phy-export-folder /dev/shm/halechr/Day5TwoNovel/SORTING/folder_SC2_phy --n-jobs 11 --sorter-params-json '{"job_kwargs": {"n_jobs": 11, "max_threads_per_worker": 1}}'
+
+# Day4Openfield progress:
+It looks like the sessions are there in `/nfs/turbo/umms-kdiba/Data/Bapun/RatS/Day4Openfield/SORTING/`
+
+[text](../../../Data/Bapun/RatS/Day4Openfield/SORTING/folder_KS4_v1_sorting_analyzer)
