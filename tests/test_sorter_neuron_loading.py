@@ -109,3 +109,69 @@ def test_build_neurons_from_spikinginterface_sorter_invalid_folder_returns_none(
     result = RawDataInitializationMixin.build_neurons_from_spikinginterface_sorter(DummySess(), tmp_path, sorter_folder=tmp_path / "missing_sorter")
     assert result is None
     assert "not a valid SpikeInterface sorter output" in capsys.readouterr().out
+
+
+def _write_kilosort4_sorter_tree(basedir: Path, run_name: str = "folder_KS4_v1") -> tuple[Path, Path]:
+    sorter_folder = basedir / "SORTING" / run_name
+    sorter_output = sorter_folder / "sorter_output"
+    sorter_output.mkdir(parents=True, exist_ok=True)
+    (sorter_folder / "spikeinterface_log.json").write_text(json.dumps({"error": False, "sorter_name": "kilosort4"}), encoding="utf-8")
+    (sorter_output / "params.py").write_text("n_channels = 4\n", encoding="utf-8")
+    return sorter_folder, sorter_output
+
+
+def test_resolve_kilosort4_paths_from_run_name(tmp_path: Path):
+    basedir = tmp_path / "Day3TwoNovel"
+    sorter_folder, sorter_output = _write_kilosort4_sorter_tree(basedir)
+    config = NeuronLoadConfig(run_name="folder_KS4_v1")
+    resolved = RawDataInitializationMixin._resolve_kilosort4_sorter_output_path(config, basedir=basedir)
+    assert resolved == sorter_output.resolve()
+
+
+def test_resolve_kilosort4_paths_from_sorter_folder(tmp_path: Path):
+    basedir = tmp_path / "Day3TwoNovel"
+    sorter_folder, sorter_output = _write_kilosort4_sorter_tree(basedir)
+    config = NeuronLoadConfig(sorter_folder=sorter_folder)
+    resolved = RawDataInitializationMixin._resolve_kilosort4_sorter_output_path(config, basedir=basedir)
+    assert resolved == sorter_output.resolve()
+
+
+def test_resolve_kilosort4_wrong_sorter_raises(tmp_path: Path):
+    sorter_folder = tmp_path / "SORTING" / "folder_SC2"
+    sorter_output = sorter_folder / "sorter_output"
+    sorter_output.mkdir(parents=True)
+    (sorter_folder / "spikeinterface_log.json").write_text(json.dumps({"error": False, "sorter_name": "spykingcircus2"}), encoding="utf-8")
+    (sorter_output / "params.py").write_text("n_channels = 4\n", encoding="utf-8")
+    config = NeuronLoadConfig(run_name="folder_SC2")
+    with pytest.raises(ValueError, match="expected kilosort4"):
+        RawDataInitializationMixin._resolve_kilosort4_sorter_output_path(config, basedir=tmp_path)
+
+
+@patch("spikeinterface.extractors.read_kilosort")
+def test_kilosort4_good_only_load(read_kilosort: MagicMock, tmp_path: Path):
+    _, sorter_output = _write_kilosort4_sorter_tree(tmp_path)
+    read_kilosort.return_value = _mock_sorting(list(range(34)))
+    neurons = RawDataInitializationMixin._load_neurons_from_spikinginterface_kilosort4(sorter_output, t_stop=10.0)
+    read_kilosort.assert_called_once_with(sorter_output, keep_good_only=True)
+    assert neurons.n_neurons == 34
+    assert list(neurons.neuron_ids) == list(range(34))
+
+
+@patch("spikeinterface.extractors.read_kilosort")
+def test_kilosort4_no_good_units_raises(read_kilosort: MagicMock, tmp_path: Path):
+    _, sorter_output = _write_kilosort4_sorter_tree(tmp_path)
+    read_kilosort.return_value = _mock_sorting([])
+    with pytest.raises(ValueError, match="no Kilosort good units"):
+        RawDataInitializationMixin._load_neurons_from_spikinginterface_kilosort4(sorter_output, t_stop=10.0)
+
+
+def test_build_neurons_from_spikinginterface_kilosort4_invalid_folder_returns_none(tmp_path: Path, capsys):
+    class DummySess:
+        name = "TestSession"
+        filePrefix = tmp_path / "TestSession"
+        eegfile = MagicMock(duration=100.0)
+        neurons = None
+
+    result = RawDataInitializationMixin.build_neurons_from_spikinginterface_kilosort4(DummySess(), tmp_path, sorter_folder=tmp_path / "missing_sorter")
+    assert result is None
+    assert "kilosort4" in capsys.readouterr().out
