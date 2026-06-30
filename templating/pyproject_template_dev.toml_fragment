@@ -1,3 +1,4 @@
 [tool.uv.sources]
 neuropy = { path = "../NeuroPy", editable = true }
 spikeinterface = { path = "../spikeinterface", editable = true }
+bombcell = { path = "../bombcell/py_bombcell", editable = true }
