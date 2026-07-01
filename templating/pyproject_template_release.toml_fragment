@@ -1,2 +1,4 @@
 [tool.uv.sources]
 neuropy = { git = "https://github.com/CommanderPho/NeuroPy.git", branch = "origin/feature/numpy-and-pandas-2" }
+spikeinterface = { git = "https://github.com/CommanderPho/spikeinterface.git", branch = "main" }
+bombcell = { git = "https://github.com/Julie-Fabre/bombcell.git", branch = "main", subdirectory = "py_bombcell" }

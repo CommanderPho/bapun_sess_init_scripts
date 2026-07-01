@@ -1,6 +1,6 @@
 [project]
 name = "bapun_sess_init_scripts"
-version = "0.3.5"
+version = "0.3.6"
 description = "Helpers for initializing a brand new, un-spike-sorted session from raw data. By Pho Hale 2026-05."
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
@@ -48,8 +48,10 @@ packages = ["spikeinterface_pipeline"]
 neuropy = { git = "https://github.com/CommanderPho/NeuroPy.git", branch = "origin/feature/numpy-and-pandas-2" }
 neo = { git = "https://github.com/NeuralEnsemble/python-neo.git" }
 probeinterface = { git = "https://github.com/SpikeInterface/probeinterface.git" }
-spikeinterface = { path = "../spikeinterface", editable = true }
-bombcell = { path = "../bombcell/py_bombcell", editable = true }
+spikeinterface = { git = "https://github.com/CommanderPho/spikeinterface.git", branch = "main" }
+bombcell = { git = "https://github.com/Julie-Fabre/bombcell.git", branch = "main", subdirectory = "py_bombcell" }
+# spikeinterface = { path = "../spikeinterface", editable = true }
+# bombcell = { path = "../bombcell/py_bombcell", editable = true }
 # unitrefine = { path = "../UnitRefine", editable = true }
 
 [dependency-groups]
