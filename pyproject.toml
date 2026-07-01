@@ -45,7 +45,7 @@ build-backend = "hatchling.build"
 packages = ["spikeinterface_pipeline"]
 
 [tool.uv.sources]
-neuropy = { path = "../NeuroPy", editable = true }
+neuropy = { git = "https://github.com/CommanderPho/NeuroPy.git", branch = "origin/feature/numpy-and-pandas-2" }
 neo = { git = "https://github.com/NeuralEnsemble/python-neo.git" }
 probeinterface = { git = "https://github.com/SpikeInterface/probeinterface.git" }
 spikeinterface = { path = "../spikeinterface", editable = true }
